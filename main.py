@@ -16,6 +16,7 @@
 #
 import webapp2
 import room
+import crunchbase
 from models import *
 
 class MainHandler(webapp2.RequestHandler):
@@ -25,5 +26,7 @@ class MainHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     (r'/enterroom/(.*)', room.EnterRoom),
-    ('/sendmessage', room.SendMessage)
+    ('/sendmessage', room.SendMessage),
+    ('/crunchbase/search', crunchbase.SearchHandler),
+    (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),
 ], debug=True)
