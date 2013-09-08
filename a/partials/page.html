@@ -1,4 +1,55 @@
 
+	<div style='padding:50px; padding-top:0px' ng-show='page=="people"'>
+
+		<div style='height:40px'>
+			<div class='pull-right' ng-show='user_profile.real_user'>
+				<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a>
+			</div>
+
+			<div class='pull-right' ng-show='!user_profile.real_user'>
+				<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
+			</div>
+		</div>
+
+		<div style='background:#a07bc7'>
+			<div class='pull-right'>
+				<div  style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' >PEOPLE IN {{room_name | uppercase}}</div>
+			</div>		
+
+			<div>
+				<img style='height:50px' header-logo src="img/asl_white.png">
+			</div>
+		</div>
+
+		<div class='reg-box content light-font' style='min-height:300px; min-width:20px; font-size:14px'>
+			<div ng-repeat='person in people_in_room | filter:real_user' >
+				<div style='background:#cdf0f2' ng-show='$index%2=0'>
+				<div style='width:calc(100% - 90px); padding:12px; padding-left:10px'>
+					<div style='color:#02abb5'>{{person.username}}</div> 
+					<div>Age: {{person.sex}} Sex: {{person.sex}} Location: {{person.location}}</div>
+					<div>Last Mention: {{person.last_mention}}</div>
+				</div>
+				</div>
+				<div style='background:#eae3f1' ng-show='$index%2=1'>
+				<div style='width:calc(100% - 90px); padding:12px; padding-left:10px'>
+					<div style='color:#8964b0'>{{person.username}}</div> 
+					<div>Age: {{person.sex}} Sex: {{person.sex}} Location: {{person.location}}</div>
+					<div>Last Mention: {{person.last_mention}}</div>
+				</div>
+				</div>
+			</div>
+
+			<div style='margin:10px; margin-bottom:90px;'>
+				<a class='btn btn-warning pull-right' ng-click='page="room"'>Ok!</a>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
 	<div style='padding:50px; padding-top:0px' ng-show='page=="commands"'>
 
 		<div style='height:40px'>
@@ -30,7 +81,7 @@
 				
 			</div>
 
-			<div style='height:95px; margin-top:5px'>
+			<div style='height:95px; margin-top:5px; background:#eeeeee'>
 				<div class='pull-left' style='padding:20px; background:#ed9d8b; width:88px'><img src='img/2.png'/></div>
 				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
 					Crunchbase Lookup
@@ -45,7 +96,7 @@
 				
 			</div>
 
-			<div style='height:95px; margin-top:5px'>
+			<div style='height:95px; margin-top:5px; background:#eeeeee'>
 				<div class='pull-left' style='padding:20px; background:#f5c973; width:88px'><img src='img/4.png'/></div>
 				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
 					At Mention
@@ -157,7 +208,7 @@
 		<div style='background:#a07bc7'>
 			<div class='pull-right'>
 				<div ng-show='!edit_room' style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' ng-click='edit_room=true'>{{room_name}}</div>
-				<div ng-show='edit_room' style='margin:8px; text-align:right'>
+				<div ng-show='edit_room' style='margin:8px; text-align:right; margin-bottom:0px'>
 					<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/> 
 					<div style='margin-top:14px'>
 						<a class='btn btn-warning' style='margin-right:4px' ng-click='edit_room=false'>Cancel</a>
@@ -183,8 +234,8 @@
 				VIEW COMMANDS
 			</div>		
 
-			<div class='open' style='font-size:17px; color:#ffffff; padding:10px'>
-				17 PEOPLE
+			<div class='open' style='font-size:17px; color:#ffffff; padding:10px; cursor:pointer' ng-click='show_people()'>
+				VIEW PEOPLE
 			</div>
 				
 		</div>

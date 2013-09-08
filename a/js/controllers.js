@@ -14,6 +14,13 @@ function pageCtrl($scope, $http){
   $scope.home_page = host + '/b/index.html#';
   $scope.room_name = 'lobby'
 
+  $scope.show_people = function() {
+    $scope.page = 'people';
+    $http.get('/peopleinroom/' + $scope.room_name).success(function(data){
+      $scope.people_in_room = data;
+    });
+  }
+
   $scope.enter_room = function() {
 
     $http.get('/enterroom/' + $scope.room_name).success(function(data){
