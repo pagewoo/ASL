@@ -8,6 +8,7 @@ class Users(db.Model):
 	username = db.StringProperty()
 	age = db.IntegerProperty()
 	sex = db.StringProperty()
+	last_mention = db.StringProperty()
 		
 class Room(db.Model):
 	user_id = db.TextProperty()
