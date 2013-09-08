@@ -40,10 +40,12 @@ class RdioTagDS(db.Model):
 	songname = db.StringProperty()
 	radiokey = db.StringProperty()
 	user_id = db.StringProperty()
+	song_data = db.TextProperty()
 
 	def to_dict(self):
 		obj = {}
 		obj['tag'] = self.tag
 		obj['songname'] = self.songname
 		obj['radiokey'] = self.radiokey
+		obj['song_data'] = json.loads(song_data)
 		return obj
