@@ -1,0 +1,542 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="plunker">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NearWoo Landing Page</title>
+<link rel="stylesheet" href="http://app.pagewoo.com/dash/css/bootstrap.css" />
+<link rel="stylesheet" href="http://nearwoo.appspot.com/c/css/angular-ui.css" />
+
+<style>
+
+html, body {
+  height: 100%;
+  background: #222;
+}
+
+
+@font-face{
+font-family:"LtFont";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Light.ttf") format("truetype");}
+
+.light-font {
+  font-family: 'LtFont';
+  font-weight: normal;
+}
+
+@font-face{
+font-family:"OpenBold";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Bold.ttf") format("truetype");}
+
+.open-bold {
+  font-family: 'OpenBold';
+}
+
+@font-face{
+font-family:"OpenSans";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Regular.ttf") format("truetype");}
+
+
+
+.blue_font{
+  color: blue;
+}
+
+
+.open {
+  font-family: 'OpenSans';
+  font-weight: normal;
+}
+
+.start {
+
+  opacity:0;
+  height:100%;
+  width:100%; 
+}
+
+
+.gray_bg{background:gray;}
+
+
+.mobile_container{
+    width:320px;
+    min-height:100%;
+    margin:auto;
+    /*padding-bottom: 60px;*/
+    background:white;
+
+}
+
+.mobile_header{
+  width:100%;
+  height:50px;
+  background:yellow;
+  border-bottom: 1px solid #222;
+}
+
+.logo_header{
+  width:51px;
+  height:50px;
+  background: yellow;
+  float:left;
+}
+
+
+.name_header{
+  width:259px;
+  height:35px;
+  background:white;
+  float:left;
+  padding: 15px 0 0 10px;
+  font-family:"OpenBold";
+}
+
+.business_info{
+  width:100%;
+  height:150px;
+  background:orange;
+  overflow: hidden;
+}
+
+.img_cover {
+  background-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  position:absolute;
+}
+
+.business_hours{
+  width:310px;
+  position:absolute;
+  top: 50px;
+  padding:96px 0 10px 10px;
+  color:white;
+  font-family:"OpenSans";
+  font-size: 12px;
+  text-shadow: 1px 1px #000;
+}
+
+.business_hours p{
+  line-height: 5px;
+}
+
+
+.business_deal{
+  width:100%;
+  height:40px;
+  padding-top:25px;
+  text-align: center;
+  color: white;
+  font-family: 'LtFont';
+  background: #666;
+  -webkit-box-shadow: inset 0px 11px 80px 11px rgba(0, 0, 0, 1);
+  box-shadow: inset 0px 11px 80px 11px rgba(0, 0, 0, 1);
+}
+
+.business_deal img{
+  margin-top:-3px;
+  margin-right: 4px;
+}
+
+
+.business_action{
+  width:300px;
+  margin: auto;
+  background: white;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.business_action img{
+  width:300px;
+  height:40px;
+  margin-top:10px;
+}
+
+.top-review {
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;
+}
+
+.bottom-review {
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;}
+
+.business_review_one {
+  margin-top:-1px;
+  border: 1px solid #999;
+  padding:5px;
+  font-size:12px;
+  text-align: left;
+
+}
+
+.business_review_two{
+  width:300px;
+
+  border-bottom:1px solid #999;
+  border-left:1px solid #999;
+  border-right:1px solid #999;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+  text-align:left;
+  background: #e4e4e4;
+}
+
+.review_div{
+  float:left;
+  width:250px;
+  padding:12px 0 3px 0; 
+  margin-left:10px;
+  background: #e4e4e4;
+  line-height:19px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.review_div img{
+  width:54px;
+  height:10px;
+  margin-top:-2px;
+  margin-right: 5px;
+}
+
+.review_div p{
+  font-size: 9px;
+  line-height: 13px;
+}
+
+.review_btn{
+  float:left;
+  width:30px;
+  height:50px;
+  background: #e4e4e4;
+
+}
+
+.review_btn img{
+  margin-top:20px;
+  margin-left:10px; 
+  width:11px;
+  height:12px;
+}
+
+
+.callnow_footer{
+/*   position:fixed;
+   bottom:0;*/
+   width:320px;
+   height:61px;   /* Height of the footer */
+   background:#6cf;
+   text-align: center;
+   border-top: 1px solid #000;
+}
+
+
+
+
+</style>
+</head>
+
+<body onload="render()">
+
+<!-- start mobile container-->
+<div class="mobile_container" ng-controller="PageCtrl">
+
+<!--start header-->
+<div class="mobile_header">
+  <div class="logo_header"><img src="http://nearwoo.appspot.com/b/img/woo_logo.png"></div>
+  <div class="name_header">{{data.name}}</div>
+</div>
+
+<!--start business info-->
+<div class="business_info">
+ <img width="320" height="300" src='{{data.selected_image_url}}'> 
+ <div class='img_cover' style='height:152px; width:320px; margin-top:-240px'>
+	<div class="business_hours" style='padding-top:80px; margin-top:-{{data.scraped_data.hours.hours_list.length*15}}px'>
+	  <p>Hours:</p>
+	  <div ng-repeat='time in data.scraped_data.hours.hours_list'>
+		  <p>{{time}}</p>
+	  </div>
+	</div>
+ </div>
+
+
+</div>
+
+<!--start business deals-->
+<div class="business_deal">
+  <p><span>  	
+  		<img src="http://app.pagewoo.com/image/get/22223001">
+  </span> 
+  <span>{{data.headline}}</span></p>
+  	
+</div>
+
+<!--end busiones deals-->
+
+
+<!--start business action-->
+<div class="business_action">
+
+  <a ng-click='map_action()'>
+  	<img src="http://app.pagewoo.com/image/get/22222001">
+  </a>
+
+  <div style='margin-top:8px'>
+	<!--stat reviews-->
+	  <div class="business_review_one {{review.pos}}" ng-repeat='review in data.reviews' ng-click='yelp_action()'  >
+	    <div class="">
+	      <div>by <strong>{{review.name}}</strong>
+	      	<rating class='pull-right' value="review.rating" max="5" readonly="true" style=''></rating>
+	      </div>
+	      <div>
+	      {{review.review}}
+	      </div>
+	    </div>
+<!-- 	    <div class="review_btn"><img src="http://app.pagewoo.com/image/get/22218004"></div> -->
+	  </div>
+	</div>
+  <a ng-click='fb_action()'>
+    <img src="http://app.pagewoo.com/image/get/22221001" ng-show='data.use_fb' >
+  </a>
+  <a ng-click='twitter_action()' >
+  	<img src="http://app.pagewoo.com/image/get/22224001" ng-show='data.use_twitter' >
+  </a>
+</div>
+<!--end business action-->
+
+<!--start call footer-->
+<div class="callnow_footer">
+	<a ng-click='twitter_action()' ng-click='call_action()'>
+		<img src="http://app.pagewoo.com/image/get/22218003" ></div>
+	</a>
+<!--end call footer-->
+
+
+</div>
+<!--end mobile container-->
+
+
+<script>
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+      // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+      // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+      // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+
+
+var data = {"twitter": "asdf", "use_fb":true, "use_twitter":true, "selected_image_url": "/blobstore/serve/qpan4PmUjYtpxRIycoYJFMdkdrIcynVycEu3OyfPmhqwVUsbkUYL8vneOCRQVQMJ", "banner_src": "banner.html", "gae_key": "agtkZXZ-bmVhcndvb3IXCxIKWWVscEpzb25EUxiAgICAgMLcCgw", "city": "New York", "name": "Scott's Pizza Tours", "headline": "asdf", "full_address": "244 5th Ave", "phone": "8009793370", "reviews": [{"pos":"top-review", "selected": true, "review": "We booked the Pizza Bus tour because of all of the great reviews here.Dear Internets: These people are not lying. You need to take this tour.Here is why:It is fun! I admit that I was a little curious why I needed to pay some dude to send me to pizza places in NYC when I can google my own...", "rating": 5, "name": "Natalie W."}, {"selected": true, "review": "If you're a pizza lover this is a must do activity while you are in New York.We did the Greenwich Village pizza tour...", "rating": 5, "name": "P G."}, {"selected": true, "review": "On a recent trip to NYC from Dallas, there was one thing I knew I had to do for my 29th Birthday. Scott's Pizza Tours...", "rating": 5, "name": "Jared G."}, {"review": "What a way to spend some time with Scott on his pizza tour.  We had so much fun, ate great pizza, and learned so much about pizza. I loved it.", "rating": 5, "name": "Donald P."}, {"review": "First of all, let me say that my teens chose the crosstown pizza tour from a \"things to do in NYC with teens\" article...", "rating": 5, "name": "Jessica S.", "pos":"bottom-review"}], "address": "244 5th Ave, (b/t 27th St & 28th St), Nolita, New York, NY 10001", "facebook": "asdf", "latitude": 40.7447964, "biz_url": "http://www.yelp.com/biz/scotts-pizza-tours-new-york", "rating": 5, "longitude": -73.98780909999999, "business_id": "scotts-pizza-tours-new-york", "photos": [{"width": 610, "url": "/blobstore/serve/qpan4PmUjYtpxRIycoYJFMdkdrIcynVycEu3OyfPmhqwVUsbkUYL8vneOCRQVQMJ", "caption": "from google images", "id": ""}, {"width": 600, "url": "/blobstore/serve/KEOk1F1hozIGesRlCsQme5z8RUtVsywCV8m0YqZ6C9RnyFXM7lUpNHSquvYtOE1s", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/d6rF6JIsENJpwHUStztafXNQ6UbUebMgYFYoPi39BJMBmvjMPn7DLkragTFw93Wm", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/AxujTpSWLCnZZNOmHsEA9sIGllw3NNn2scuxenRTdNufVWsEBnrLXeMKBK1qOOS5", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/FGACAm4WUK0J0M19RlVK0l3Kr6SfsGkrT1dLrDqVg23ewA1H9Cf1OTxYevwUmZyp", "caption": "Big yelp images", "id": ""}, {"width": 550, "url": "/blobstore/serve/a65MuAdSqI46DyeMXLKFnodqyeP0tf7mItunQJARPaui1kzT2fANtouIMKpZbxja", "caption": "from google images", "id": ""}, {"width": 550, "url": "/blobstore/serve/TG1B0DVT329FhnvBG867gV3ecLJojszLI43TZAGuf9IbSGXHxpx56ybCtP9RyYbT", "caption": "from google images", "id": ""}, {"width": 539, "url": "/blobstore/serve/KAyUm5VBnmAv1fGInHZ6sMkgKiiSpFc3uTIa3Ug0PCZ301GEGQAgdBAjFz4onirb", "caption": "from google images", "id": ""}, {"is_primary": false, "width": 533, "url": "/blobstore/serve/SuolCweUtEUckFaSEnfQ37e4ImmrGnx5TkEEzll822ZFdai7g1TbIJVkpbJh1cTC", "caption": "Coal burning oven", "id": "ojumgAdsruAg58TqC8hKWg"}, {"is_primary": false, "width": 533, "url": "/blobstore/serve/bjfAL3toADZ3XdAD19eMR4rF0p0durkArh6cQd7UlQUrzJYmLIpeBsv4xoHR6rHB", "caption": "Tour Bus License Plate!", "id": "qNy--ptv233NyLi1Ym7_cA"}], "scraped_data": {"biz_url": "http://www.yelp.com/biz/scotts-pizza-tours-new-york", "city": "New York", "category_list": [["Tours", "tours"], ["Pizza", "pizza"]], "name": "Scott's Pizza Tours", "hours": {"hours_list": ["Mon, Wed-Thu, Sat 11 am - 2 pm", "Sun 11 am - 3:30 pm", "Sun 11 am - 3:30 pm", "Sun 11 am - 3:30 pm"]}, "rating": 5, "menu": null, "longitude": -73.98780909999999, "business_id": "scotts-pizza-tours-new-york", "photos": [{"width": 610, "url": "/blobstore/serve/qpan4PmUjYtpxRIycoYJFMdkdrIcynVycEu3OyfPmhqwVUsbkUYL8vneOCRQVQMJ", "caption": "from google images", "id": ""}, {"width": 600, "url": "/blobstore/serve/KEOk1F1hozIGesRlCsQme5z8RUtVsywCV8m0YqZ6C9RnyFXM7lUpNHSquvYtOE1s", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/d6rF6JIsENJpwHUStztafXNQ6UbUebMgYFYoPi39BJMBmvjMPn7DLkragTFw93Wm", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/AxujTpSWLCnZZNOmHsEA9sIGllw3NNn2scuxenRTdNufVWsEBnrLXeMKBK1qOOS5", "caption": "Big yelp images", "id": ""}, {"width": 600, "url": "/blobstore/serve/FGACAm4WUK0J0M19RlVK0l3Kr6SfsGkrT1dLrDqVg23ewA1H9Cf1OTxYevwUmZyp", "caption": "Big yelp images", "id": ""}, {"width": 550, "url": "/blobstore/serve/a65MuAdSqI46DyeMXLKFnodqyeP0tf7mItunQJARPaui1kzT2fANtouIMKpZbxja", "caption": "from google images", "id": ""}, {"width": 550, "url": "/blobstore/serve/TG1B0DVT329FhnvBG867gV3ecLJojszLI43TZAGuf9IbSGXHxpx56ybCtP9RyYbT", "caption": "from google images", "id": ""}, {"width": 539, "url": "/blobstore/serve/KAyUm5VBnmAv1fGInHZ6sMkgKiiSpFc3uTIa3Ug0PCZ301GEGQAgdBAjFz4onirb", "caption": "from google images", "id": ""}, {"is_primary": false, "width": 533, "url": "/blobstore/serve/SuolCweUtEUckFaSEnfQ37e4ImmrGnx5TkEEzll822ZFdai7g1TbIJVkpbJh1cTC", "caption": "Coal burning oven", "id": "ojumgAdsruAg58TqC8hKWg"}, {"is_primary": false, "width": 533, "url": "/blobstore/serve/bjfAL3toADZ3XdAD19eMR4rF0p0durkArh6cQd7UlQUrzJYmLIpeBsv4xoHR6rHB", "caption": "Tour Bus License Plate!", "id": "qNy--ptv233NyLi1Ym7_cA"}, {"width": 533, "url": "/blobstore/serve/c3YwR2Sb3D3VhsaqeS3SE90bzzrFwpfN2ULzW6F1lcSDxWQEmWlqJ9pSSWQx7N4N", "caption": "Big yelp images", "id": ""}, {"width": 533, "url": "/blobstore/serve/9tF0NQgEipTKK5RUwH8Nzuw5i4HGD6GoE3aHciNe4RGJmz9XgAeL0va1fUbJu336", "caption": "Big yelp images", "id": ""}, {"width": 533, "url": "/blobstore/serve/Vkr3IbdiVM8m60byBPmnDDPRXs2z4TEo6YBY5rRnjGzh2YF1NFisBLZfZaSR4jvz", "caption": "Big yelp images", "id": ""}, {"is_primary": false, "width": 500, "url": "/blobstore/serve/Xhf0eGxLlDiPlhgxIuNLPh5RH9VnvSbeXQiZkgxY4ea8535uPdmF0PlXB0nVvaDS", "caption": "Me likey pizza!", "id": "1lZgTk9D-spKRr0PVTS-WA"}, {"width": 500, "url": "/blobstore/serve/CkKKqQQb7fk0uYRgR4QLwsp7dDhmz9dvXXoCKdnjDxBv9Mha0oVEV3q7tWtO9QdN", "caption": "from google images", "id": ""}, {"width": 500, "url": "/blobstore/serve/58CnP90tPWzUKiB7CWNeFmkVVWrhCs7XTFRcHaIJDdMdyTc6BSQ4mRzrqWoXserv", "caption": "Big yelp images", "id": ""}, {"width": 500, "url": "/blobstore/serve/Ch6jxkao45e4begRhQww5EPbA26gaXCjNPAcgntyG4Pu4zm9hwLWysl7zvTMJoRt", "caption": "Big yelp images", "id": ""}, {"width": 500, "url": "/blobstore/serve/YCGyylee5MeoY1IsJvBaUMQuV9uxDt0XIY3Gr9gW9Q19fwrLGbj6qmgT8wqaH9be", "caption": "Big yelp images", "id": ""}, {"width": 500, "url": "/blobstore/serve/EMfAsc9FG2spxIWd6ulLbPXU8YqAom5rUD7nr5DrDUHgulK0EgdiY2ZdLjngvALO", "caption": "Big yelp images", "id": ""}, {"width": 494, "url": "/blobstore/serve/8FdAupYuI3Ux7pV3xeo0KelzHLVpcTw5oTbuNIRD3VYVmGanWNpbCq6yScLIMR0I", "caption": "from google images", "id": ""}, {"width": 460, "url": "/blobstore/serve/zCKCeJDKaNv9D7yt8TD6I4Ierdklsjudf6msW7J3VRnumHEPSUXAbG4awKtDfxT5", "caption": "from google images", "id": ""}, {"width": 460, "url": "/blobstore/serve/r8HP2ytjTKhySiAjocyzYVBmy59axyNBtNk2tlJzULnbkH4f7hPTc6iBTlD2JxB1", "caption": "from google images", "id": ""}, {"width": 457, "url": "/blobstore/serve/AgWIj4068eXEoAOA7KRLPagqy6TGUNntL0O5j4tKAOkiF6aC5OCIRp56FsYfndrD", "caption": "from google images", "id": ""}, {"width": 400, "url": "/blobstore/serve/1hm3kUKGe9OTSDhVB97J1LGJspDu5sCODVY7DyTzEOl5YZA8jPB9U3lNLDR1ZwhR", "caption": "from google images", "id": ""}, {"is_primary": false, "width": 300, "url": "/blobstore/serve/fBnoRJtP6pCc8hoMqJbnAxy4mN5BI6HIbJH2Ij5ig3pYmsFokDcieBuF2QSXf7hK", "caption": "Scott dishing out pizza in the cold", "id": "HUMdUlkCvuKAa7EVAe23kA"}, {"width": 300, "url": "/blobstore/serve/AnSXtmTomw8J1tBXK849dvTrpuXwvgcYECd2neVZs2isbEe7IOAsGlMLyoFURiBi", "caption": "Big yelp images", "id": ""}, {"width": 300, "url": "/blobstore/serve/vyQBsPcQPSYUlrKGKNG5b8xyBgrPNeYInXzZuteRr7EZhqdy00L6i1aZDieuhhzH", "caption": "Big yelp images", "id": ""}, {"width": 300, "url": "/blobstore/serve/orQUJ9ZoYakrqVdFXpj3xwfvRvQic11rXbhirPbdB4pXIZlfI8xGtgUhrrI7BJY3", "caption": "Big yelp images", "id": ""}, {"width": 298, "url": "/blobstore/serve/Bo0gxUcFOhtthe3HkkbNWHSFF9Ufwp3bpghvg9XTsZ0fG7LKnsC8FC9ztfRye6ng", "caption": "Big yelp images", "id": ""}, {"width": 100, "url": "/blobstore/serve/aaIJNkZWjRFrcNOD4bmYpLKsoWhPv63ZLAdTBzIIHbyZwbcjDCbqo7PHAoZApW9a", "caption": "", "id": ""}], "phone": "8009793370", "reviews": {"reviews": [{"selected": true, "review": "We booked the Pizza Bus tour because of all of the great reviews here.Dear Internets: These people are not lying. You need to take this tour.Here is why:It is fun! I admit that I was a little curious why I needed to pay some dude to send me to pizza places in NYC when I can google my own. Remember going on field trips? The pizza bus is exactly like that. It's a nice escape; you feel silly and different on a bus full of adults there to eat pizza!Scott is enthusiastic and the fun he's having is infectious. He treats everyone on the tour like you're his friends and you're at his birthday party- complete with goodie bags!It is educational. If you enjoy cooking shows- specifically Alton Brown- this is a great tour for you. Scott has all of the answers to the science behind pizza, and he has a way of conveying that information in a manner that isn't stiff and boring.And what he teaches you sticks in your mind afterward- I can't tell you how many tours I've been on that seem like a long rambling of facts that go in one ear and out the other. On Scott's tour, you actually retain the knowledge because you can see it applied in a practical manner.The pizza and the pizza makers. It is awesome to see the relationships Scott has cultivated with the owners. On our tour (which was on Mother's Day) we had the pleasure of meeting Scott's mom who told us that places call him to be on the tour, but he only takes us to places that meet his criteria. It is incredible that not only has he researched pizza and pizza history so thoroughly, he has also curated a list of places where the owners &amp; employees not only know his name but actually love him. That friendliness adds to the great ambiance of the tour.I enjoyed trying the different kinds of pizza and comparing notes with the other tour members. It was interesting to see what pizzas New Yorkers on the tour liked vs others from different parts of the country- and guess what? Scott even had answers for why that was!After a weekend of walking around Manhattan, it was great to unwind and relax on the bus. You will be in good hands on this tour- I can't recommend it highly enough!", "rating": 5, "name": "Natalie W."}, {"selected": true, "review": "If you're a pizza lover this is a must do activity while you are in New York.We did the Greenwich Village pizza tour (mostly because it was only one available during the week in April). We had a group of about 16 and Scott himself conducted the tour. I've never met any tour guide on any tour I've ever taken that had as much knowledge, passion and enthusiasm as Scott. He is a Pizza encyclopedia and a Pizza fanatic.We had a fantastic time on a beautiful April NY day visiting 3 pizza places and enjoying three completely different styles of pizza and talking all about pizza from how to make it, ingredients, history, where to go and anything else you can think about pizza.If you love pizza, don't miss this tour!!! I'm going to go again next time I'm in NYC", "rating": 5, "name": "P G."}, {"selected": true, "review": "On a recent trip to NYC from Dallas, there was one thing I knew I had to do for my 29th Birthday. Scott's Pizza Tours. Yes.Now home from my trip in NYC and a month has passed, there is one thing that I remember most from my visit and its meeting Scott, the tour, and sharing his passion for naples style new york pizza.This whole thing was an amazing treat. With less than 15 in my group (we did the BUS tour, the only way to go!!) we got a really intimate experience. We tasted coal, wood and gas ovens in Manhattan, Queens and Brooklyn.Learning all of the facts about pizza... and why it is what is is, fascinated me. Along the way we got to see a part of NYC that most tourists never stop to look at, and really feel like we were a part of the local community for a few hours.This tour is not cheap, but Scott is worth every penny. I really loved this Tour and felt like I had met an old friend. God Bless you Scott and your love for pizza. May your business forever be successful!!!", "rating": 5, "name": "Jared G."}, {"review": "What a way to spend some time with Scott on his pizza tour.  We had so much fun, ate great pizza, and learned so much about pizza. I loved it.", "rating": 5, "name": "Donald P."}, {"review": "First of all, let me say that my teens chose the crosstown pizza tour from a \"things to do in NYC with teens\" article, and I was secretly less than enthusiastic about spending 3 hours of our day learning about pizza. That said, the tour had no where to go but up in my expectations, but I am so happy to report that not only is Scott a dynamic, spirited, and interesting guy, but that his interest in history and pizza is not only strong, but infectious. We had a fantastic time, learned a lot, and just genuinely enjoyed the afternoon visiting different areas of Manhattan and munching on pizza from some of his favorite spots.We learned about brick oven vs gas oven pizza preparation, different styles of pizza and how they evolved over time, how pizza came to be in the first place, it's roots in NYC, how to stretch pizza dough the proper way (will be very helpful for when we make pizzas at home!), and visited the manufacturer of a hand crafted pizza oven made right in Soho. My kids were fascinated, and have been saying things like \"That's what Scott would say\" ever since the tour. They loved this guy, and want to send him pizza boxes for his collection, and buy his book whenever it comes out.Oh yeah! We ate good pizza on the tour. My favorite was Lombardi's, but our other two spots-- Pizza Box and John's were tasty, too. Half the people we passed on the street knew Scott and acknowledged him, one older woman embraced him and told us how much she loved him, he obviously was a real \"people person\".  We had a great time, learned a lot, and had a good pizza lunch. Wear comfortable shoes, you're on your feet most of the time. I highly recommend this tour.We booked about a week and a half out, and took the last 3 spots on a Friday tour, so don't wait too long if you have a specific day in mind.", "rating": 5, "name": "Jessica S."}, {"review": "Scott's is a must do tour!So, you think you know the world of pizza?Why is a Margherita Pizza called a Margherita pizza?Did you know  the gluten, protein, and hydration levels of your dough dictate whether you are a 'folder', 'flat', a 'two-hander', or 'knife and fork' eater'?Where is the oldest pizzeria in North America?Where do I purchase a deck oven in Manhattan after the tour?There is a tour that can answer all of these burning questions (and more).Scott's Pizza Tour is probably the most entertaining and informative tour that I have ever taken in NYC, without exaggerationScott's tour will map out the current day pizza landscape as well as cover the significant times, events, and places in NY pizza history.We did the walking tour and next up is the bus tour.This tour is a 'must do' for everyone from the 'recreational' pizza-eater to most hardcore greasy-chinned 'pizz-a-holic'!!A++Nice work Scott!", "rating": 5, "name": "PizzavisionNJ M."}, {"review": "I have to say coming into this I judge the tour too early... Who really wants to know about pizza. I just eat it.I left not only appreciating the tour but taken to a whole new level of really appreciating New York pizza.This tour and tour guide not only shares the passion of everything and anything dealing with pizza (from the ovens to the history) but Scott manages to make his enthusiasm about it contagious.I left very well pleased and felt like a pizza connoisseur.A MUST DO TOUR.", "rating": 5, "name": "Richard C."}, {"review": "During this tour I was so impressed with Scott's passion for and knowledge about pizza that I thought i had to do a yelp review to help him out.  As it turns out everyone already gives him 5 stars and I don't have much to add. great", "rating": 5, "name": "Steven S."}, {"review": "This tour was literally one of the best tours I have ever been on. An absolute must for everyone: tourist and local alike.Not only does Scott literally know all there is to know about pizza, you can tell he loves what he does. His enthusiasm is infectious.I will be counting down the days until I go on another one of Scott's Pizza Tours.", "rating": 5, "name": "Jenna T."}, {"review": "This was so much fun.  We met outside the old Lombardi's, where it all began and proceeded to make 3 stops, following the \"evolution of pizza\".  Scott is a pizza enthusiast, but I would say bordering on Pizza Maniac.3 stops for a good slice (2 were sit down, eat in) on a cold day.  The walks were not long, and of course, your in NYC, so even that part is a blast.  Interesting people in our group who all had one thing in common.  Pizza.Scott's knowledge, historical tidbits, and interesting dialogue will make this time well spent.   Scott also recommended a couple other shops in the area of our last stop and we ended up making it 5 slices at 5 places.  Thanks Scott!", "rating": 5, "name": "Chuck N."}]}, "address": "244 5th Ave, (b/t 27th St & 28th St), Nolita, New York, NY 10001", "latitude": 40.7447964}, "page_type": {"yelp": true, "id": "restuarant", "type": "Restuarant Page"}, "category_list": [["Tours", "tours"], ["Pizza", "pizza"]], "targeting": {"advanced": false, "locations": [{"pop09": 0, "polygon": [[40.746038, -73.990518, 40.746659, -73.990067, 40.747277, -73.989617, 40.747895, -73.989166, 40.747535, -73.988305, 40.746536, -73.985949, 40.745921, -73.986393, 40.745301, -73.986846, 40.744682, -73.987298, 40.745286, -73.988729, 40.746038, -73.990518]], "p_pop63": 0, "urbzcode": "U1", "pop48": 0, "hh33": 0, "p_pop19": 0, "p_pop18": 0, "p_pop17": 0, "p_pop16": 0, "p_pop15": 0, "p_pop14": 0, "p_pop13": 0, "p_pop12": 0, "p_pop11": 0, "p_pop10": 0, "p_hh37": 0, "p_hh36": 0, "p_hh35": 0, "hh66": 0, "hh61": 0, "p_hh32": 0, "name": "Block Group 2", "p_hh30": 0, "pop11": 0, "p_hh39": 0, "p_hh34": 0, "volume": 0, "tract": "tract_36061007600", "geoid": "block_group_360610076002", "urbzname": "Principal Urban Centers I", "pop28": 0, "pop13": 0, "hh35": 0, "state": "state_36", "p_pop08": 1, "p_pop09": 0, "hh60": 0, "hh06": 0, "p_pop04": 0, "p_pop05": 0, "p_pop06": 0, "p_pop07": 0, "p_pop01": 0, "p_pop02": 0, "p_pop03": 0, "pop49": 0, "p_pop32": 0, "hh40": 0, "pop03": 0, "pop02": 0, "pop01": 0, "pop07": 0, "pop06": 0, "pop05": 0, "p_hh60": 0, "lifename": "Solo Acts", "p_hh38": 0, "p_hh23": 0, "taphbasecy": 353, "pop44": 0, "hh38": 0, "pop43": 0, "hh14": 0, "hh39": 0, "hh47": 0, "pop42": 0, "p_hh46": 0, "hh15": 0, "p_hh44": 0, "hh17": 0, "hh10": 0, "p_hh43": 0, "p_hh40": 0, "p_hh41": 0, "hh18": 0, "hh19": 0, "p_hh48": 0, "p_hh49": 0, "pop50": 0, "pop51": 0, "pop52": 0, "pop53": 0, "pop54": 0, "pop55": 0, "pop56": 0, "pop57": 0, "pop58": 0, "pop59": 0, "p_hh61": 0, "p_hh42": 0, "hh30": 0, "hh31": 0, "hh65": 0, "pop61": 0, "hh64": 0, "hh16": 0, "pop10": 0, "pop38": 0, "domtap": "pop08", "p_hh55": 0, "p_hh54": 0, "p_pop28": 0, "p_hh56": 0, "hh03": 0, "p_hh50": 0, "p_hh53": 0, "p_hh52": 0, "p_pop22": 0, "p_pop23": 0, "p_pop20": 0, "p_pop21": 0, "p_pop26": 0, "p_pop27": 0, "hh09": 0, "p_pop25": 0, "p_hh20": 0, "p_hh21": 0, "p_hh22": 0, "pop66": 0, "p_hh24": 0, "p_hh25": 0, "pop63": 0, "p_hh27": 0, "p_hh28": 0, "p_hh29": 0, "hh62": 0, "p_hh57": 0, "pop32": 0, "hh36": 0, "p_pop29": 0, "p_hh58": 0, "pop33": 0, "p_hh51": 0, "pop04": 0, "pop08": 614, "hh02": 0, "p_hh47": 0, "hh01": 0, "hh63": 0, "hh08": 353, "hh43": 0, "tappbasecy": 614, "p_hh59": 0, "bbox": [-73.990518, 40.744682, -73.98594899999999, 40.747895], "hh42": 0, "p_hh64": 0, "p_hh65": 0, "p_hh66": 0, "pop35": 0, "hh32": 0, "hh41": 0, "p_hh62": 0, "p_hh63": 0, "p_pop40": 0, "p_pop41": 0, "p_pop42": 0, "p_pop43": 0, "p_pop44": 0, "p_pop45": 0, "p_pop46": 0, "p_pop47": 0, "p_pop48": 0, "p_pop49": 0, "pop30": 0, "pop31": 0, "pop36": 0, "pop37": 0, "pop34": 0, "hh46": 0, "hh37": 0, "p_hh33": 0, "hh45": 0, "hh44": 0, "pop65": 0, "pop64": 0, "tapsegnam": "Laptops and Lattes", "hh07": 0, "p_hh45": 0, "hh21": 0, "hh20": 0, "hh23": 0, "hh22": 0, "hh25": 0, "hh24": 0, "hh27": 0, "hh26": 0, "hh29": 0, "hh28": 0, "hh04": 0, "pop60": 0, "p_pop35": 0, "p_pop34": 0, "p_pop37": 0, "p_pop36": 0, "p_pop31": 0, "p_pop30": 0, "p_pop33": 0, "hh59": 0, "pop47": 0, "pop46": 0, "pop45": 0, "pop62": 0, "p_pop39": 0, "p_pop38": 0, "maponics_city_nbr": "maponics_city_nbr_189415", "pop40": 0, "county": "county_36061", "pop20": 0, "lifemode": {"name": "Solo Acts", "description": "Residents of the Solo Acts summary group segments are singles who prefer city life. Many are young, just starting out in more densely populated US neighborhoods; others are well-established singles who have no home ownership or child-rearing responsibilities. Second only to High Society, residents of this group tend to be well-educated, working professionals who are either attending college or already hold a degree. Their incomes re\ufb02ect their employment experience, ranging from a low median of $44,601 (Old and Newcomers) among the newest households to approximately $93,899 (Laptops & Lattes) among established singles. Home ownership is at 28\u00a0percent; the median home value is $236,054. Contrary to modern migration patterns that \ufb02ow away from the largest cities, Solo Acts\u2019 residents are moving into major cities such as New York City; Chicago; Washington, D.C.; Boston; Los Angeles; and San Francisco. With considerable discretionary income and few commitments, their lifestyle is urban, including the best of city life\u2014dining out, attending plays and concerts, and visiting museums\u2014and, for a break from constant connectivity, extensive travel domestically and abroad.", "selected": false, "segments": [8, 23, 27, 36, 39], "color": "#6DCDE3", "id": "IV"}, "maponics_city_mac": "maponics_city_mac_14763", "pop23": 0, "lifecode": "L4", "hh11": 0, "p_pop24": 0, "pop22": 0, "hh12": 0, "st_abbrev": "NY", "hh05": 0, "pop41": 0, "hh13": 0, "hh58": 0, "p_hh02": 0, "p_hh08": 1, "p_hh09": 0, "p_pop61": 0, "hh51": 0, "hh50": 0, "p_hh03": 0, "hh52": 0, "p_hh01": 0, "p_hh06": 0, "p_hh07": 0, "p_hh04": 0, "p_hh05": 0, "hh53": 0, "p_hh31": 0, "p_pop66": 0, "hh54": 0, "p_pop64": 0, "p_pop65": 0, "p_pop62": 0, "cd112": "cd112_3608", "p_pop60": 0, "hh55": 0, "pop14": 0, "pop15": 0, "pop16": 0, "pop17": 0, "volume_yesterday": 0, "hh56": 0, "pop12": 0, "pop29": 0, "scope": "block_group", "hh57": 0, "pop18": 0, "pop19": 0, "p_hh26": 0, "hh34": 0, "zipcode": "zipcode_10001", "p_hh19": 0, "p_hh18": 0, "hh49": 0, "hh48": 0, "p_hh11": 0, "p_hh10": 0, "p_hh13": 0, "p_hh12": 0, "p_hh15": 0, "p_hh14": 0, "p_hh17": 0, "p_hh16": 0, "p_pop53": 0, "p_pop52": 0, "p_pop51": 0, "p_pop50": 0, "p_pop57": 0, "p_pop56": 0, "p_pop55": 0, "p_pop54": 0, "pop21": 0, "pop39": 0, "p_pop59": 0, "p_pop58": 0, "pop25": 0, "pop24": 0, "pop27": 0, "pop26": 0, "selected": true, "location": [40.7464271111111, -73.9882398888889]}, {"pop09": 0, "polygon": [[40.747152, -73.985496, 40.747773, -73.985046, 40.748439, -73.98456, 40.749102, -73.984076, 40.748432, -73.982473, 40.747751, -73.980853, 40.747145, -73.981361, 40.747765, -73.982957, 40.747098, -73.983443, 40.746478, -73.983897, 40.745861, -73.984344, 40.746536, -73.985949, 40.747152, -73.985496]], "p_pop63": 0, "urbzcode": "U1", "pop48": 0, "hh33": 0, "p_pop19": 0, "p_pop18": 0, "p_pop17": 0, "p_pop16": 0, "p_pop15": 0, "p_pop14": 0, "p_pop13": 0, "p_pop12": 0, "p_pop11": 0, "p_pop10": 0, "p_hh37": 0, "p_hh36": 0, "p_hh35": 0, "hh66": 0, "hh61": 0, "p_hh32": 0, "name": "Block Group 1", "p_hh30": 0, "pop11": 0, "p_hh39": 0, "p_hh34": 0, "volume": 0, "tract": "tract_36061007400", "geoid": "block_group_360610074001", "urbzname": "Principal Urban Centers I", "pop28": 0, "pop13": 0, "hh35": 0, "state": "state_36", "p_pop08": 1, "p_pop09": 0, "hh60": 0, "hh06": 0, "p_pop04": 0, "p_pop05": 0, "p_pop06": 0, "p_pop07": 0, "p_pop01": 0, "p_pop02": 0, "p_pop03": 0, "pop49": 0, "p_pop32": 0, "hh40": 0, "pop03": 0, "pop02": 0, "pop01": 0, "pop07": 0, "pop06": 0, "pop05": 0, "p_hh60": 0, "lifename": "Solo Acts", "p_hh38": 0, "p_hh23": 0, "taphbasecy": 731, "pop44": 0, "hh38": 0, "pop43": 0, "hh14": 0, "hh39": 0, "hh47": 0, "pop42": 0, "p_hh46": 0, "hh15": 0, "p_hh44": 0, "hh17": 0, "hh10": 0, "p_hh43": 0, "p_hh40": 0, "p_hh41": 0, "hh18": 0, "hh19": 0, "p_hh48": 0, "p_hh49": 0, "pop50": 0, "pop51": 0, "pop52": 0, "pop53": 0, "pop54": 0, "pop55": 0, "pop56": 0, "pop57": 0, "pop58": 0, "pop59": 0, "p_hh61": 0, "p_hh42": 0, "hh30": 0, "hh31": 0, "hh65": 0, "maponics_city_sub": "maponics_city_sub_189416", "pop61": 0, "hh64": 0, "hh16": 0, "pop10": 0, "pop38": 0, "domtap": "pop08", "p_hh55": 0, "p_hh54": 0, "p_pop28": 0, "p_hh56": 0, "hh03": 0, "p_hh50": 0, "p_hh53": 0, "p_hh52": 0, "p_pop22": 0, "p_pop23": 0, "p_pop20": 0, "p_pop21": 0, "p_pop26": 0, "p_pop27": 0, "hh09": 0, "p_pop25": 0, "p_hh20": 0, "p_hh21": 0, "p_hh22": 0, "pop66": 0, "p_hh24": 0, "p_hh25": 0, "pop63": 0, "p_hh27": 0, "p_hh28": 0, "p_hh29": 0, "hh62": 0, "p_hh57": 0, "pop32": 0, "hh36": 0, "p_pop29": 0, "p_hh58": 0, "pop33": 0, "p_hh51": 0, "pop04": 0, "pop08": 1177, "hh02": 0, "p_hh47": 0, "hh01": 0, "hh63": 0, "hh08": 731, "hh43": 0, "tappbasecy": 1177, "p_hh59": 0, "bbox": [-73.98594899999999, 40.745861, -73.980853, 40.749102], "hh42": 0, "p_hh64": 0, "p_hh65": 0, "p_hh66": 0, "pop35": 0, "hh32": 0, "hh41": 0, "p_hh62": 0, "p_hh63": 0, "p_pop40": 0, "p_pop41": 0, "p_pop42": 0, "p_pop43": 0, "p_pop44": 0, "p_pop45": 0, "p_pop46": 0, "p_pop47": 0, "p_pop48": 0, "p_pop49": 0, "pop30": 0, "pop31": 0, "pop36": 0, "pop37": 0, "pop34": 0, "hh46": 0, "hh37": 0, "p_hh33": 0, "hh45": 0, "hh44": 0, "pop65": 0, "maponics_shopping": "maponics_shopping_1040", "pop64": 0, "tapsegnam": "Laptops and Lattes", "hh07": 0, "p_hh45": 0, "hh21": 0, "hh20": 0, "hh23": 0, "hh22": 0, "hh25": 0, "hh24": 0, "hh27": 0, "hh26": 0, "hh29": 0, "hh28": 0, "hh04": 0, "pop60": 0, "p_pop35": 0, "p_pop34": 0, "p_pop37": 0, "p_pop36": 0, "p_pop31": 0, "p_pop30": 0, "p_pop33": 0, "hh59": 0, "pop47": 0, "pop46": 0, "pop45": 0, "pop62": 0, "p_pop39": 0, "p_pop38": 0, "maponics_city_nbr": "maponics_city_nbr_7639", "pop40": 0, "county": "county_36061", "pop20": 0, "lifemode": {"name": "Solo Acts", "description": "Residents of the Solo Acts summary group segments are singles who prefer city life. Many are young, just starting out in more densely populated US neighborhoods; others are well-established singles who have no home ownership or child-rearing responsibilities. Second only to High Society, residents of this group tend to be well-educated, working professionals who are either attending college or already hold a degree. Their incomes re\ufb02ect their employment experience, ranging from a low median of $44,601 (Old and Newcomers) among the newest households to approximately $93,899 (Laptops & Lattes) among established singles. Home ownership is at 28\u00a0percent; the median home value is $236,054. Contrary to modern migration patterns that \ufb02ow away from the largest cities, Solo Acts\u2019 residents are moving into major cities such as New York City; Chicago; Washington, D.C.; Boston; Los Angeles; and San Francisco. With considerable discretionary income and few commitments, their lifestyle is urban, including the best of city life\u2014dining out, attending plays and concerts, and visiting museums\u2014and, for a break from constant connectivity, extensive travel domestically and abroad.", "selected": false, "segments": [8, 23, 27, 36, 39], "color": "#6DCDE3", "id": "IV"}, "maponics_city_mac": "maponics_city_mac_14763", "pop23": 0, "lifecode": "L4", "hh11": 0, "p_pop24": 0, "pop22": 0, "hh12": 0, "st_abbrev": "NY", "hh05": 0, "pop41": 0, "hh13": 0, "hh58": 0, "p_hh02": 0, "p_hh08": 1, "p_hh09": 0, "p_pop61": 0, "hh51": 0, "hh50": 0, "p_hh03": 0, "hh52": 0, "p_hh01": 0, "p_hh06": 0, "p_hh07": 0, "p_hh04": 0, "p_hh05": 0, "hh53": 0, "p_hh31": 0, "p_pop66": 0, "hh54": 0, "p_pop64": 0, "p_pop65": 0, "p_pop62": 0, "cd112": "cd112_3614", "p_pop60": 0, "hh55": 0, "pop14": 0, "pop15": 0, "pop16": 0, "pop17": 0, "volume_yesterday": 0, "hh56": 0, "pop12": 0, "pop29": 0, "scope": "block_group", "hh57": 0, "pop18": 0, "pop19": 0, "p_hh26": 0, "hh34": 0, "zipcode": "zipcode_10016", "p_hh19": 0, "p_hh18": 0, "hh49": 0, "hh48": 0, "p_hh11": 0, "p_hh10": 0, "p_hh13": 0, "p_hh12": 0, "p_hh15": 0, "p_hh14": 0, "p_hh17": 0, "p_hh16": 0, "p_pop53": 0, "p_pop52": 0, "p_pop51": 0, "p_pop50": 0, "p_pop57": 0, "p_pop56": 0, "p_pop55": 0, "p_pop54": 0, "pop21": 0, "pop39": 0, "p_pop59": 0, "p_pop58": 0, "pop25": 0, "pop24": 0, "pop27": 0, "pop26": 0, "selected": true, "location": [40.74754509090909, -73.98350054545453]}]}, "person": "asfd", "page_src": "page.html", "email": "asdf"}
+
+
+var PageWoo;
+
+var play_on_load = true;
+
+var host = window.location.hostname;
+if (host === '127.0.0.1') {
+  host = 'http://' + host + ':8082';
+} else {
+  host = 'http://' + host;
+}
+
+var call_action = function() {
+
+
+
+}
+
+var email_action = function() {
+
+  var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&email=' + $('#email').val() + '&convtype=email';
+  
+  $.get(url, function(data) {
+  });
+
+  window.location = 'tel:+1' + action_data.phone_number;
+}
+
+var fb_action = function() {
+
+  console.log('calling ' + QueryString.click)
+  $.get(QueryString.click, function(data) {
+
+  });
+
+  var url = host + '/bc/' + data.banner_key + window.location.search;
+  console.log(url);
+  window.open(host + '/bc/' + data.banner_key + window.location.search, '_blank');
+}
+
+var twitter_action = function() {
+
+  console.log('calling ' + QueryString.click)
+  $.get(QueryString.click, function(data) {
+
+  });
+
+  var url = host + '/bc/' + data.banner_key + window.location.search;
+  console.log(url);
+  window.open(host + '/bc/' + data.banner_key + window.location.search, '_blank');
+}
+
+var map_action = function() {
+
+  console.log('calling ' + QueryString.click)
+  $.get(QueryString.click, function(data) {
+    
+  });
+
+  var url = host + '/bc/' + data.banner_key + window.location.search;
+  console.log(url);
+  window.open(host + '/bc/' + data.banner_key + window.location.search, '_blank');
+}
+
+var pause = function() {
+  play_on_load = false;
+  PageWoo.pause();
+}
+
+var play = function() {
+  PageWoo.resume();
+} 
+
+var copy_top;
+  
+var elements = [];
+var text_elements = [];
+var img_left;
+
+function make_page() {
+  
+  //var bg = make_bg(page, pg_ct);
+  
+  //$('#headline').text(data.headline)
+  //$('#business-name').text(data.name)
+  //$('#main-img').attr('src', data.selected_image_url)
+  $('#biz_name').text(data.name);
+  $('#address').text(data.full_address);
+  $('#phone').text(data.phone);
+  
+}
+  
+function assimilate(obj, obj1) {
+
+  for (var e in obj1) {
+    obj[e] = obj1[e]; 
+  }
+  
+}
+
+var grey_bg = function() {
+
+  TweenMax.to($('body'), .3, {css:{backgroundColor:'#fcfcfc'}})
+
+}
+
+var random_bg = function() {
+  var num = Math.floor(Math.random()*5);
+
+  if (num == 0) {
+    TweenMax.to($('body'), 2, {css:{backgroundColor:'#FFDF77'}})
+  }
+  if (num == 1) {
+    TweenMax.to($('body'), 2, {css:{backgroundColor:'#FFCC2A'}})
+  }
+  if (num == 2) {
+    TweenMax.to($('body'), 2, {css:{backgroundColor:'#ACCDEC'}})
+  }
+  if (num == 3) {
+    TweenMax.to($('body'), 2, {css:{backgroundColor:'#F1636F'}})
+  }
+  if (num == 4) {
+    TweenMax.to($('body'), 2, {css:{backgroundColor:'#fcfcfc'}})
+    
+  }
+  console.log('random bg')
+}
+  
+var render = function() {
+  
+  console.log('render');
+
+  make_page();
+
+}
+
+</script>
+
+
+<script src="http://nearwoo.appspot.com/b/js/jquery-1.7.min.js"></script>
+<script src="http://nearwoo.appspot.com/c/js/angular.min.js"></script>
+<script src="http://nearwoo.appspot.com/c/js/ui-bootstrap-0.3.0.min.js"></script>
+<script src="http://nearwoo.appspot.com/c/js/ui-bootstrap-tpls-0.3.0.min.js"></script>
+<script src="http://nearwoo.appspot.com/b/js/TweenMax.js"></script>
+<script src="http://nearwoo.appspot.com/b/js/easing/EasePack.js"></script>
+
+<script>
+
+angular.module('plunker', ['ui.bootstrap']);
+
+function PageCtrl($scope, $http) {
+	$scope.data = data;
+
+
+	$scope.call_action = function() {
+	    var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&convtype=call';
+	    $http.get(url).success(function(data) {
+	      $window.location = 'tel:+1' + $scope.data.phone_number;	
+	    });
+	}
+
+	$scope.fb_action = function() {
+	    var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&convtype=fb';
+	    $http.get(url).success(function(data) {
+	      $window.location = $scope.data.facebook;	
+	    });
+	}
+
+	$scope.twitter_action = function() {
+	    var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&convtype=twitter';
+	    $http.get(url).success(function(data) {
+	      $window.location = $scope.data.twitter;	
+	    });
+	}
+
+	$scope.yelp_action = function() {
+	    var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&convtype=yelp';
+	    $http.get(url).success(function(data) {
+	      $window.location = $scope.data.scraped_data.biz_url;
+	    });
+	}
+
+	$scope.map_action = function() {
+	    var url = host + '/lpc/' + QueryString.pagekey + window.location.search + '&convtype=map';
+	    $http.get(url).success(function(data) {
+	      $window.location = 'http://maps.google.com/?q=' + $scope.data.scraped_data.address;
+	    });
+	}	
+	
+}
+
+</script>
+
+</body>
+</html>	

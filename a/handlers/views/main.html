@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}OAuth2.0 demo{% endblock %}</title>
+    <style>
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <div class="content">
+    {% block maincontent %}
+
+    {% endblock %}
+  </div>
+
+  <div>
+    <footer>
+      <hr/>
+      <p>
+        {% if not user %}
+          <a href="/v1/oauth2/login">Login (and forgot password)</a>
+        {% else %}
+          Logged in as <span style="background-color: OldLace">{{ user.name }}</span> | <a href="/v1/oauth2/logout">Logout</a>
+        {% endif %}
+        |
+        <a href="/v1/oauth2">Home</a>
+        |
+        <a href="/v1/oauth2/signup">New user</a>
+        |
+        <a href="/v1/oauth2/authenticated">Secured page</a> (you can see this after login)
+      </p>
+    </footer>
+  </div>
+
+
+  </body>
+</html>
