@@ -2,7 +2,7 @@ from google.appengine.ext import ndb, db
 from google.appengine.ext.db import polymodel
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
-
+import json
 
 class Users(db.Model):
 	username = db.StringProperty()
@@ -47,5 +47,5 @@ class RdioTagDS(db.Model):
 		obj['tag'] = self.tag
 		obj['songname'] = self.songname
 		obj['radiokey'] = self.radiokey
-		obj['song_data'] = json.loads(song_data)
+		obj['song_data'] = json.loads(self.song_data)
 		return obj
