@@ -23,3 +23,8 @@ class CompanyHandler(Handler):
     def get(self, name):
         client = Crunchbase()
         self.finish(client.company(name))
+
+class SummaryHandler(Handler):
+    def get(self, name):
+        client = Crunchbase()
+        self.finish(client.company_summary(name))
