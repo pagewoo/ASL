@@ -208,10 +208,13 @@ def mentions(message):
 
 def play_song(message):
 	p = re.compile(r'!\w+')
-	matches =p.findall(message)
-	if matches:
-		songs = RdioTagDS.gql('where tag = :1', self.tag).fetch(10)
-		rando = random.randint(0,9)
+	matches = p.findall(message['message'])
+
+	chosen_song = None
+	if len(matches) >= 1:
+		logging.info(matches)
+		songs = RdioTagDS.gql('where tag = :1', matches[0]).fetch(10)
+		rando = random.randint(0,len(matches)-1)
 		chosen_song = songs[rando]
 
 	return chosen_song
@@ -245,17 +248,22 @@ def messsage_scan(message):
 	crunch_results = None
 	song_success = None
 
-	tag_success = hashtags(message)
+	tagged = hashtags(message)
 	mention = mentions(message)
 	crunch_results = crunch_base(message)
 	song = play_song(message)
 
-	results = {'tag' : tag,
-			   'mention' : mention,
-			   'song' : song.to_dict()}
+	results = {}
+	if tagged:
+		results['tagged'] = tagged
+	if mention:
+		results['mention'] = mention
+
+	if song:
+		results['song'] = song.to_dict()
 
 	if crunch_results:
-		results['crunch_results'] = crunch_results,
+		results['crunch_results'] = crunch_results
 
 
 	return results
