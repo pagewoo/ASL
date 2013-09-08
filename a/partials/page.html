@@ -3,27 +3,70 @@
 
 	<div style='padding:50px; padding-top:0px' ng-show='page=="edit_profile"'>
 
-		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
-				<div>
-					@
-					<input class="form-control" ng-model='user_profile.username'>
+		<div style='height:40px'>
+			<div class='pull-right' ng-show='user_profile.real_user'>
+				<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a> {{user_profile.last_mention}}
+			</div>
+
+			<div class='pull-right' ng-show='!user_profile.real_user'>
+				<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
+			</div>
+		</div>
+
+		<div style='background:#a07bc7'>
+			<div class='pull-right'>
+				<div  style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' >Your Profile</div>
+				<div ng-show='edit_room' style='margin:8px; text-align:right'>
+					<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/> 
+					<div style='margin-top:14px'>
+						<a class='btn btn-warning' style='margin-right:4px' ng-click='edit_room=false'>Cancel</a>
+						<a class='btn btn-success' ng-click='change_room()'>Save</a>
+					</div>
+				</div>
+			</div>		
+
+			<div>
+				<img style='height:50px' header-logo src="img/asl_white.png">
 				
+			</div>
+		</div>
+
+		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
+			<div style='height:55px'>
+				<div class='pull-left' style='padding:20px; background:#cff1ff'>@</div>
+				<div class='pull-left' style='width:calc(100% - 55px);'>
+					<input class="form-control" style='height:55px; width:calc(100% - 0px); display:inline-block; border-radius:0px; border:none' ng-model='user_profile.username'>
 				</div>
-				<div>
-					Age
-					<input class="form-control" ng-model='user_profile.age'>
+				
+			</div>
+
+			<div style='height:55px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#cff1ff'>a</div>
+				<div class='pull-left' style='width:calc(100% - 48px);'>
+					<input class="form-control" style='height:55px; width:calc(100% - 0px); display:inline-block; border-radius:0px; border:none' ng-model='user_profile.age'>
+				</div>		
+			</div>
+
+			<div style='height:55px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#cff1ff'>s</div>
+				<div class='pull-left' style='width:calc(100% - 47px);'>
+					<input class="form-control" style='height:55px; width:calc(100% - 0px); display:inline-block; border-radius:0px; border:none' ng-model='user_profile.sex'>
 				</div>
-				<div>
-					Sex
-					<input class="form-control" ng-model='user_profile.sex'>
-				</div>R
-				<div>
-					Loc
-					<input class="form-control" ng-model='user_profile.loc'>
+				
+			</div>
+
+			<div style='height:55px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#cff1ff'>l</div>
+				<div class='pull-left' style='width:calc(100% - 43px);'>
+					<input class="form-control" style='height:55px; width:calc(100% - 0px); display:inline-block; border-radius:0px; border:none' ng-model='user_profile.loc'>
 				</div>
-				<div>
-					<a class='btn' ng-click='save_profile()' >Save Profile</a>
-				</div>
+				
+			</div>
+
+			<div style='margin:10px'>
+			<a class='btn btn-primary pull-right' ng-click='save_profile()'>Save Profile</a>
+			</div>
+
 		</div>
 
 	</div>
@@ -60,7 +103,7 @@
 		</div>
 
 		<div style='background:#00c4d0'>
-			<div class='pull-right' ng-show='!user_profile.real_user' style='font-size:17px; background:#000; color:#fff; padding:10px; padding-left:20px; padding-right:20px'>
+			<div ng-show='!edit_room' class='pull-right' style='font-size:17px; background:#000; color:#fff; padding:10px; padding-left:20px; padding-right:20px'>
 				VIEW COMMANDS
 			</div>		
 
