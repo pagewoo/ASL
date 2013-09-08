@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NearWoo Banner Ad</title>
+<link rel="stylesheet" href="http://app.pagewoo.com/dash/css/bootstrap.css" />
+
+<style>
+
+html, body {
+	overflow:hidden;
+}
+body {
+	background-color:#fcfcfc;
+	margin:0px;
+	padding:0px;
+	color:#333;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+@font-face{
+font-family:"LtFont";
+src:url("Fonts/OpenSans-Light.ttf") format("opentype");}
+
+.light-font {
+  font-family: 'LtFont';
+  font-weight: normal;
+}
+
+@font-face{
+font-family:"OpenBold";
+src:url("Fonts/OpenSans-Bold.ttf") format("opentype");}
+
+.open-bold {
+  font-family: 'OpenBold';
+}
+
+@font-face{
+font-family:"OpenSans";
+src:url("Fonts/OpenSans-Regular.ttf") format("truetype");}
+
+.open {
+  font-family: 'OpenSans';
+  font-weight: normal;
+}
+
+.start {
+
+	opacity:0;
+	height:100%;
+	width:100%;	
+	
+}
+
+.ad_copy {
+	border:none;
+	padding:2px;
+	color:#ffffff;
+	font-size:12px;
+	font-weight:bold;
+	x:56px;
+	top:5px;
+	text-align:center;
+	position:fixed;
+	opacity: 0;
+}
+
+.text-copy {
+	height: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+}
+
+.ad_copy2 {
+	border:none;
+	padding:2px;
+	color:#ffffff;
+	font-size:11px;
+	top:20px;
+	text-align:center;
+	x:56px;
+	position:fixed;
+	opacity: 0;
+}
+
+</style>
+</head>
+
+<body onload="load()">
+
+<div id='container' style='width:100%' onclick="click_action()"></div>
+
+</div>
+
+
+<script>
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    	// If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+    	// If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+    	// If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+
+
+var data = {
+	
+		photos:[
+		
+			{
+			 url:'img/test1.jpg',
+			 caption:'Super tasty!'
+			},
+
+			{
+			 url:'img/test2.jpg',
+			 caption:'Super tasty!'
+			},
+
+			{
+			 url:'img/test3.jpg',
+			 caption:'Super tasty!'
+			},
+
+			{
+			 url:'img/test1.jpg',
+			 caption:'Super tasty!'
+			},
+
+		],
+
+		tagline:'We are #1 in Santa Monica',
+		teaser:'Best tacos porfavor north of Tijuana',
+
+		full_address:'123 Main St. Santa Monica',
+		height:50,
+		width:320,
+		name:'TacoMas!',
+		animation_style:'smooth',
+		banner_key:'203482039890823',
+		
+}
+
+var PageWoo;
+
+var play_on_load = true;
+
+var host = window.location.hostname;
+if (host === '127.0.0.1') {
+	host = 'http://' + host + ':8082';
+} else {
+	host = 'http://' + host;
+}
+
+var click_action = function() {
+
+	// if theres a click tag fire that separately from redirecting to our url
+	console.log('calling ' + QueryString.click)
+	if (QueryString.click != null) {
+		$.get(QueryString.click, function(data) {
+			//alert('Load was performed.');
+		});	
+	}
+
+	var url = host + '/bc/' + QueryString.bannerkey + window.location.search;
+	console.log(url);
+	window.open(url, '_blank');
+}
+
+var load = function() {
+
+	console.log('LOADED!!! ' + data.toString());
+	setTimeout(render, 1000)
+		
+}
+
+var update = function(data) {
+
+	
+}
+
+var pause = function() {
+	play_on_load = false;
+	PageWoo.pause();
+}
+
+var play = function() {
+	PageWoo.resume();
+}	
+
+var copy_top;
+	
+var elements = [];
+var text_elements = [];
+var img_left;
+var over_woo;
+var teaser;
+
+function make_page() {
+
+	elements.push(make_img(data.photos[0].url, 0));
+	elements.push(make_img(data.photos[0].url, 1));
+
+	img_left = make_img(data.photos[0].url, 'img-left-2');
+
+	over_woo = make_img('img/over_woo.png', 'overwoo');
+
+	teaser = make_text(data.teaser, 'teaser', 'OpenSans', 'left', 17);
+
+	text_elements.push(make_text(data.teaser, 'teaser', 'OpenSans', 'left', 17))
+	text_elements.push(make_text(data.name, 'biz_name', 'OpenBold', 'left', 17))
+	text_elements.push(make_text(data.name, 'biz_name_left', 'OpenBold', 'left', 15))
+	text_elements.push(make_text(data.full_address, 'full_address', 'OpenSans', 'left', 15))
+	// //return elements;
+
+	// nearwoo_tranny = make_tranny();
+	
+}
+	
+function assimilate(obj, obj1) {
+
+	for (var e in obj1) {
+		obj[e] = obj1[e];	
+	}
+	
+}
+	
+function make_bg(page, id) {
+	
+	var bg_div = $("<div class='start' id=page_bg_" + id + "><img src='" + page.background_img_url + "'/></div>");
+	bg_div.css({
+	  'position': 'absolute',
+	});
+	$('#container').append(bg_div);
+	assimilate(bg_div, page);
+	return bg_div;
+	
+}
+
+function make_tranny() {
+
+	var div = $("<div class='start' id='element_tranny'><img class='' src='img/nearwoo_tranny.png'/></div>");
+	div.css({
+	  'position': 'absolute',
+	  'text-align': 'left',
+	});
+	$('#container').append(div);
+
+	return $('#element_tranny');
+
+}
+
+function make_img(element, id) {
+
+	console.log('img ' + element)
+	var div = $("<div class='start' id=element_" + id + "><img style='' class='' src='" + element + "'/></div>");
+	div.css({
+	  'position': 'absolute',
+	  'text-align': 'left',
+	});
+	$('#container').append(div);
+	assimilate(div, element);
+	return $('#element_' + id);
+
+}
+
+function make_text(element, id, font_style, align, font_size) {
+
+	var div = $("<div style='padding-left:5px; padding-right:5px' class='start text-copy open' id=element_" + id + ">" + element + "</div>");
+	div.css({
+	  'position': 'absolute',
+	  'color': '#fff',
+	  'font-size': font_size + 'px',
+	  'text-align': align,
+	  'font-family': font_style,
+	});
+	$('#container').append(div);
+	assimilate(div, element);
+	return $('#element_' + id);
+
+}
+
+var grey_bg = function() {
+
+	TweenMax.to($('body'), .3, {css:{backgroundColor:'#fcfcfc'}})
+
+}
+
+var random_bg = function() {
+	var num = Math.floor(Math.random()*5);
+
+	if (num == 0) {
+		TweenMax.to($('body'), 2, {css:{backgroundColor:'#FFDF77'}})
+	}
+	if (num == 1) {
+		TweenMax.to($('body'), 2, {css:{backgroundColor:'#FFCC2A'}})
+	}
+	if (num == 2) {
+		TweenMax.to($('body'), 2, {css:{backgroundColor:'#ACCDEC'}})
+	}
+	if (num == 3) {
+		TweenMax.to($('body'), 2, {css:{backgroundColor:'#F1636F'}})
+	}
+	if (num == 4) {
+		TweenMax.to($('body'), 2, {css:{backgroundColor:'#fcfcfc'}})
+		
+	}
+	console.log('random bg')
+}
+	
+var render = function() {
+	
+	console.log('render');
+
+	make_page();
+
+	PageWoo = new TimelineMax({repeat:100, repeatDelay:1});
+	
+	var ct = 0;
+	var cur_x = 20;
+
+	PageWoo.append(TweenMax.fromTo(elements[0], 5, {css: {autoAlpha:0, y:-100, x:0}, ease:Power2.easeOut}, {css:{autoAlpha:1, y:-127, x:-20}, ease:Power2.easeOut} ), 0);
+
+	PageWoo.append(TweenMax.fromTo(over_woo, 2, {css: {autoAlpha:0, y:0, x:-620}, ease:Power2.easeOut}, {css:{autoAlpha:1, y:0, x:-230}, ease:Power2.easeOut} ), -4);
+
+
+	PageWoo.append(TweenMax.to(text_elements[2], .5, {css: {autoAlpha:1, y:-7, x:10}, ease:Power2.easeOut}), -4);
+	
+	PageWoo.append(TweenMax.to(text_elements[3], .5, {css: {autoAlpha:1, y:13, x:10}, ease:Power2.easeOut, onComplete:grey_bg}), -4);
+
+	PageWoo.append(TweenMax.fromTo(elements[1], 5, {css: {autoAlpha:0, y:-200, x:0}, ease:Power2.easeOut}, {css:{autoAlpha:1, y:-177, x:-50}, ease:Power2.easeOut} ), 0);
+
+	PageWoo.append(TweenMax.to(text_elements[3], 1, {css: {autoAlpha:1, y:13, x:320}, ease:Power2.easeIn, onComplete:grey_bg}), -4);
+
+	PageWoo.append(TweenMax.fromTo(teaser, 1, {css: {autoAlpha:0, y:13, x:-150}, ease:Power2.easeOut}, {css:{autoAlpha:1, y:13, x:10}, ease:Power2.easeOut}), -3.5);
+	
+	PageWoo.play();
+
+	if (!play_on_load) {
+
+	} else {
+
+
+	}
+
+}
+	
+
+</script>
+
+
+
+<script src="http://app.pagewoo.com/dash/js/jquery-1.7.min.js"></script>
+<script src="http://app.pagewoo.com/dash/js/TweenMax.js"></script>
+<script src="http://app.pagewoo.com/dash/js/bootstrap.min.js"></script>
+<script src="http://app.pagewoo.com/dash/js/plugins/CSSPlugin.js"></script>
+<script src="http://app.pagewoo.com/dash/js/easing/EasePack.js"></script>
+
+
+
+</body>
+</html>

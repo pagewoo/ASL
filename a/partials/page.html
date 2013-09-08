@@ -1,0 +1,22 @@
+
+
+	<div style='padding:50px; padding-top:0px'>
+
+		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
+			<div ng-repeat='message in messages'>
+				
+				<div>{{message.message}}</div>
+			</div>	
+		</div>
+
+		<div id='commands'>
+			<div class='pull-right'>
+				<a class='btn' ng-click='send_message()'>Send!</a>
+			</div>
+			<div style='margin-top:1px'>
+				<input style='width:calc(100% - 80px)' type='text' ui-keypress='{enter:"send_message()"}' ng-model='new_command' />
+			</div>
+		</div>
+
+	</div>
+

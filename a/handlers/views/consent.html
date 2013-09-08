@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block maincontent %}
+
+<h1>Consent</h1>
+
+{% if denied %}
+  Got it. We won't share your data with {{ appname }}.
+{% endif %}
+
+The application {{ appname }} would like access to your Populus data.
+Allow?
+
+<form class="form" action="/v1/oauth2/consent" method="POST">
+  <input type="radio" name="consent" value="grant_consent">Yes
+  <input type="radio" name="consent" value="deny_consent">No
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

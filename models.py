@@ -9,7 +9,7 @@ class Users(db.Model):
 	age = db.IntegerProperty()
 	sex = db.StringProperty()
 		
-
 class Room(db.Model):
-	user_ids = db.TextProperty()
+	user_id = db.TextProperty()
 	room_name = db.StringProperty()
+	entered = db.DateTimeProperty(auto_now_add=True)

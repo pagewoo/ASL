@@ -1,0 +1,242 @@
+
+/*body, html {
+  height: 100%;
+  background: #222; 
+}*/
+
+@font-face{
+font-family:"LtFont";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Light.ttf") format("truetype");}
+
+.light-font {
+  font-family: 'LtFont';
+  font-weight: normal;
+}
+
+@font-face{
+font-family:"OpenBold";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Bold.ttf") format("truetype");}
+
+.open-bold {
+  font-family: 'OpenBold';
+}
+
+@font-face{
+font-family:"OpenSans";
+src:url("http://nearwoo.appspot.com/c/Fonts/OpenSans-Regular.ttf") format("truetype");}
+
+
+
+.blue_font{
+  color: blue;
+}
+
+
+.open {
+  font-family: 'OpenSans';
+  font-weight: normal;
+}
+
+.start {
+
+  opacity:0;
+  height:100%;
+  width:100%;
+}
+
+
+.gray_bg{background:gray;}
+
+
+.mobile_container{
+    width:320px;
+    min-height:100%;
+    margin:auto;
+    /*padding-bottom: 60px;*/
+    background:white;
+
+}
+
+.mobile_header{
+  width:100%;
+  height:50px;
+  background:white;
+  border-bottom: 1px solid #222;
+  overflow: hidden;
+}
+
+.logo_header{
+  width:51px;
+  height:50px;
+  background: yellow;
+  float:left;
+}
+
+
+.name_header{
+  height:35px;
+  background:white;
+  float:left;
+  padding: 15px 0 0 10px;
+  font-family:"OpenBold";
+}
+
+.business_info{
+  width:100%;
+  height:150px;
+  background:orange;
+  overflow: hidden;
+}
+
+.img_cover {
+  background-color: rgba(0, 0, 0, 0.22);
+  background: rgba(0, 0, 0, 0.22);
+  position:absolute;
+}
+
+.banner-text{
+  width:310px;
+  position:absolute;
+  padding:6px 0 10px 10px;
+  color:white;
+  font-family:"OpenSans";
+  font-size: 12px;
+  text-shadow: 1px 1px #000;
+}
+
+.business_hours{
+  width:310px;
+  position:absolute;
+  top: 50px;
+  padding:96px 0 10px 10px;
+  color:white;
+  font-family:"OpenSans";
+  font-size: 12px;
+  text-shadow: 1px 1px #000;
+}
+
+.business_hours p{
+  line-height: 5px;
+}
+
+.business_deal{
+  width:100%;
+  height:40px;
+  padding-top:20px;
+  text-align: center;
+  color: white;
+  font-family: 'LtFont';
+  background: #666;
+  -webkit-box-shadow: inset 0px 11px 80px 11px rgba(0, 0, 0, 1);
+  box-shadow: inset 0px 11px 80px 11px rgba(0, 0, 0, 1);
+}
+
+.line2{
+  padding:10px;
+  text-align: center;
+  color: white;
+  font-family: 'LtFont';
+  font-size:13px;
+  color: #666;
+  background: #efefef;
+}
+
+.business_deal img{
+  margin-top:-3px;
+  margin-right: 4px;
+}
+
+
+.business_action{
+  width:300px;
+  margin: auto;
+  background: white;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.business_action img{
+  width:300px;
+  height:40px;
+  margin-top:10px;
+}
+
+.top-review {
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;
+}
+
+.bottom-review {
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;}
+
+.business_review_one {
+  margin-top:-1px;
+  border: 1px solid #999;
+  padding:5px;
+  font-size:12px;
+  text-align: left;
+
+}
+
+.business_review_two{
+  width:300px;
+
+  border-bottom:1px solid #999;
+  border-left:1px solid #999;
+  border-right:1px solid #999;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+  text-align:left;
+  background: #e4e4e4;
+}
+
+.review_div{
+  float:left;
+  width:250px;
+  padding:12px 0 3px 0;
+  margin-left:10px;
+  background: #e4e4e4;
+  line-height:19px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.review_div img{
+  width:54px;
+  height:10px;
+  margin-top:-2px;
+  margin-right: 5px;
+}
+
+.review_div p{
+  font-size: 9px;
+  line-height: 13px;
+}
+
+.review_btn{
+  float:left;
+  width:30px;
+  height:50px;
+  background: #e4e4e4;
+
+}
+
+.review_btn img{
+  margin-top:20px;
+  margin-left:10px;
+  width:11px;
+  height:12px;
+}
+
+
+.callnow_footer{
+/*   position:fixed;
+   bottom:0;*/
+   width:320px;
+   height:61px;   /* Height of the footer */
+   background:orange;
+   text-align: center;
+   border-top: 1px solid #000;
+}
+

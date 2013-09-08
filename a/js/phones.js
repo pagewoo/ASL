@@ -1,0 +1,636 @@
+101 G9: 8
+10b G3: 5
+201: 1
+272: 1
+290C (TracFone): 1
+3DS: 14
+5860: 1311
+6277: 3
+6350: 1
+6790 slide: 1
+70it2: 16
+7461-CI1100: 14
+7DTB4: 1
+800G: 2
+80G9: 10
+8810: 1
+9: 66
+A101: 2
+A10: 1
+A200: 332
+A210/CAPTR II: 1
+A300: 1
+A310/MSGM8 II: 3
+A410: 5
+A43: 2
+A500/Picasso: 417
+A501: 9
+A50: 34
+A510: 2
+A510c: 135
+A5: 1
+A6366/Aria: 2
+A6380/Aria: 51
+A7-004: 10
+A70S: 1
+A7: 24
+A810e/ChaCha: 74
+A854: 53
+A9191: 8
+A9192: 226
+A953/MILESTONE 2: 5
+A9: 1
+ADR3305: 164
+ADR6230: 57
+ADR6285: 10
+ADR6325: 298
+ADR6330: 437
+ADR6350/Droid Incredible 2: 1310
+ADR6350: 189
+ADR6410L: 389
+ADR6425: 649
+ADR8995/Breakout: 440
+ADS1: 59
+Aero: 1
+Ally: 266
+Amaze 4G: 395
+AN7G2: 2
+AN7G3: 2
+Arnova 10 G2: 2
+AS680: 141
+AS740: 26
+AT100: 548
+AT1S0: 5
+AT200: 9
+AT300: 67
+ATP515CKIT: 1
+Barcelona: 2
+BC1003: 5
+Behold 2: 1
+Blackberry 8310: 1
+BlackBerry 8520 Curve: 76
+BlackBerry 8530/Curve: 71
+BlackBerry 8900: 40
+BlackBerry 9000: 10
+BlackBerry 9105/Pearl 3G: 1
+BlackBerry 9220: 17
+BlackBerry 9300 Curve 3G: 67
+BlackBerry 9310: 3
+BlackBerry 9320: 19
+BlackBerry 9330/Curve: 18
+BlackBerry 9360: 70
+BlackBerry 9370: 1
+BlackBerry 9650: 4
+BlackBerry 9670: 1
+BlackBerry 9700/Onyx: 47
+BlackBerry 9780: 26
+BlackBerry 9790: 18
+BlackBerry 9800: 188
+BlackBerry 9810: 24
+BlackBerry 9850: 4
+BlackBerry 9860: 33
+BlackBerry 9900: 102
+Blackberry Bold Touch 9930: 32
+BlackBerry Tour 9630: 27
+Blade: 1
+BNTV250: 409
+Bravo C: 5
+Bravo: 1
+C110E/Radar: 3
+C3-00: 1
+C5120: 14
+C5121: 20
+C729: 140
+C771: 497
+C800: 499
+C8511: 1
+Citrus: 12
+CMP743: 25
+Crystal: 1
+CTP888: 1
+Desire ADR6200: 4
+Desire CDMA: 31
+Desire HD: 2382
+Desire S: 1
+Desire V: 3
+Desire Z: 2
+Desire: 10
+Devour: 43
+Disco10 FlyTouch 3: 64
+Droid 2: 1028
+Droid 3: 1024
+Droid 4: 758
+Droid Bionic: 1678
+Droid Eris: 32
+Droid Incredible: 847
+DROID PRO: 157
+DROID RAZR: 6245
+Droid X2: 1551
+Droid: 558
+DroidX: 1887
+DSi: 9
+E15a: 3
+E201: 27
+E310/Liquid Mini: 1
+E400: 1
+E405f: 3
+E510: 5
+E612G: 49
+E71: 4
+E720 Optimus Chic: 1
+E720b: 25
+E739: 660
+E810: 3
+E901: 1
+Eee Pad Transformer: 344
+Espresso: 11
+EVO 3D: 1915
+Evo 4G LTE: 2425
+Evo 4G: 417
+Evo Design 4G: 41
+Evo Shift 4G: 99
+Explorer: 1
+F-01D: 2
+F160: 2
+F5151/Freestyle: 14
+fj vortex: 7
+Flyer P512: 18
+Flytouch 3: 1
+G Tablet: 1
+G1: 2
+G2: 371
+Galaxy Indulge: 184
+Galaxy Nexus: 1181
+Galaxy Player YP-GB1: 24
+Galaxy Precedent: 4
+Gem: 43
+Generic Android Mobile: 409
+Generic Android Tablet: 54
+Glacier: 1132
+GoGear SA3: 1
+Gpad Q7: 2
+GT i5700/Galaxy Spica: 2
+GT i7500 Galaxy: 1
+GT I9000/Galaxy S: 65
+GT-B7510: 2
+GT-I5500 Galaxy Europa: 6
+GT-I8150 Galaxy W: 2
+GT-I8530: 4
+GT-i9000M: 2
+GT-I9000T: 4
+GT-I9001 Galaxy S Plus: 6
+GT-I9003: 1
+GT-I9070: 2
+GT-I9100 Galaxy S2: 172
+GT-I9100G: 3
+GT-I9100M: 2
+GT-I9220: 4
+GT-I9300: 73
+GT-N7000 Galaxy Note: 114
+GT-N8010: 152
+GT-P1000 Galaxy Tab: 7
+GT-P1000M: 6
+GT-P1000N: 3
+GT-P1010 Galaxy Tab: 62
+GT-P3100: 10
+GT-P3113: 752
+GT-P5100: 3
+GT-P5110: 6
+GT-P5113: 551
+GT-P6200: 7
+GT-P6210: 103
+GT-P7300 Galaxy Tab 8.9: 3
+GT-P7310 Galaxy Tab 8.9: 43
+GT-P7500 Galaxy Tab 10.1: 8
+GT-P7510 Galaxy Tab 10.1: 506
+GT-S5300: 4
+GT-S5360 Galaxy Y: 73
+GT-S5360L: 10
+GT-S5363: 1
+GT-S5570/Galaxy Mini: 3
+GT-S5570L: 1
+GT-S5660/Galaxy Gio: 3
+GT-S5670L: 1
+GT-S5830: 17
+GT-S5830L/Galaxy Ace: 15
+GT-S5830M: 8
+GT-S5839i: 1
+GT-S7500: 3
+GT540 Optimus: 3
+GT550: 7
+gTablet: 1
+H8: 128
+Hannspad SN101T1: 5
+HD2 T8585: 3
+Hero 200: 108
+Hero: 127
+i1 Opus One: 9
+i867: 6
+i940: 1
+Iconia Tab A100/Vangogh: 149
+Iconia Tab A700: 2
+IdeaPad A1-07: 64
+IdeaPad K1: 33
+IdeaPad S10-3t: 45
+IDEOS S7: 75
+Ideos: 50
+II: 28
+imx51: 1
+Incredible HD: 1345
+Incredible S: 8
+Inspire 4G: 3
+Inspire HD: 3
+iPad: 9322
+iPhone Simulator: 15
+iPhone: 305660
+iPod Touch: 712863
+IS04: 1
+ISW11SC/SCI11: 1
+IT-M809RC: 1
+Kaiser: 1
+KCI-S1350: 2
+Kin One: 1
+Kindle Fire: 14411
+Kingdom: 3
+L45C: 364
+L55C: 521
+L85C: 3
+LG230/Nite: 2
+LG840/Spider 2: 1
+LG855: 977
+Liberty: 41
+LN510/Rumor: 1
+LS670: 1188
+LS685/Gelato: 255
+LT15a: 3
+LT15i/Xperia Arc: 3
+LT18i/Ayame: 9
+LT22i: 4
+LT26i: 10
+LT28at: 224
+LT30P: 2
+LU2300: 2
+Lumia 710: 7
+Lumia 900: 1
+LW690/Optimus C: 186
+M009F: 1
+M1001: 9
+M6000/Zio: 514
+M600i: 1
+M615: 1
+M7206: 1
+M799: 8
+M835: 481
+M860: 737
+M865: 1321
+M886: 646
+M920: 534
+M9300: 141
+M9: 1
+MA440: 1
+Marvel: 2
+MB200/Cliq: 7
+MB501: 4
+MB502: 15
+MB508: 13
+MB511: 11
+MB520 Bravo: 21
+MB525: 98
+MB611: 40
+MB612: 377
+MB853: 514
+MB865: 755
+ME865: 4
+MFC150DEX: 1
+MI-ONE: 2
+MID1024: 1
+MID1125: 3
+MID1126: 1
+MID7012: 13
+MID7014: 2
+MID7024: 3
+MID7033: 3
+MID7035: 1
+MID7042: 7
+MID7125: 6
+MID8042: 10
+MID8125: 1
+MID8127: 8
+MID9742: 15
+MID: 6
+Milestone Plus: 73
+Milestone X: 136
+Milestone: 6
+MK16a: 2
+MN180: 1
+MN240/Imprint: 9
+MN510/Banter Touch: 2
+MotoMB300: 18
+MS690: 1311
+MS840: 349
+MS910/Bryce: 853
+MT11a: 1
+MT11i: 5
+MT15i/Xperia Neo: 1
+MT27i: 1
+myTouch 3G: 560
+myTouch 4G: 615
+MZ601/Xoom: 330
+MZ604: 8
+MZ609: 7
+MZ617: 57
+N10: 1
+N5top: 3
+N701: 5
+N762: 48
+N850: 49
+N860: 2089
+N950: 5
+N960: 44
+Next 7S: 8
+NEXT7P12: 25
+Nexus 7: 826
+Nexus One: 77
+Nexus S 4G: 430
+Nexus S: 54
+Non-Mobile: 309
+None: 5314
+Nook Color: 43
+Novel: 47
+NXM901/Next3: 7
+Olympus MB860: 529
+Omnia II: 1
+One S: 123
+One Touch 156: 1
+One V: 467
+One X: 1337
+One XL: 3
+Optik: 83
+Optimus L7 P700: 1
+OT-802A: 8
+OT-918A: 1
+OT-918N: 1
+OT-981A: 2
+OT-990: 18
+OT-990A: 7
+OT-991: 1
+OT-995: 11
+P350 Optimus Me: 3
+P4100: 40
+P5000: 1
+P500: 12
+P500h: 2
+P504: 25
+P505: 321
+P506 Thrive: 77
+P509/Optimus T: 588
+P510e Flyer: 1
+P6800: 3
+P690: 1
+P698f: 1
+P7040: 2
+P705: 3
+P720: 1
+P76ti: 18
+P8000/Crossover: 291
+P801W: 2
+P880: 116
+P9060: 94
+P9070: 1005
+P920 Optimus 3D: 9
+P925/Optimus 3D: 638
+P930: 207
+P970/Optimus Black: 6
+P990/Optimus 2X: 1
+P990H: 1
+P999/T-Mobile G2x: 606
+Panache: 6
+PB99400/Incredible: 155
+PC36100: 3752
+PG06100: 767
+PG09410: 2
+PG41200/Evo View 4G: 50
+PG762: 227
+PH06130: 5
+PH39100: 1247
+PH44100: 424
+PHOTON 4G: 1013
+Picopad QGN: 1
+Pixi: 3
+Planet: 3
+PlayBook: 25
+PlayStation 3: 12
+PlayStation Portable/PSP: 2
+PlayStation Vita: 1
+PMID700: 1
+PMID701C: 12
+Premium7: 15
+Premium8se: 15
+PTAB7200: 8
+Q8: 3
+R375: 2
+R380: 2
+R631/Messager Touch: 9
+R800a: 131
+R800at: 11
+R800i Xperia Play: 2
+R800x Xperia Play: 349
+R803: 1
+R860/Caliber: 4
+S1300/Melo: 1
+S5PV210: 6
+S6102: 1
+S710d: 1
+SCH-i110: 246
+SCH-I200: 647
+SCH-I400: 145
+SCH-I405: 1457
+SCH-I500: 2199
+SCH-i510/Droid Charge: 982
+SCH-I535: 2655
+SCH-I800: 583
+SCH-I815: 21
+SCH-i905/Galaxy Tab 10.1 4G: 83
+SCH-i957: 59
+SCH-M828C: 875
+SCH-R261: 15
+SCH-R355 (TracFone): 1
+SCH-R430 (MetroPCS): 1
+SCH-R451 (TracFone): 12
+SCH-R460: 1
+SCH-R530U: 723
+SCH-R680: 275
+SCH-R720: 3696
+SCH-R880: 74
+SCH-R915: 100
+SCH-R920: 614
+SCH-R930: 286
+SCH-S720C: 624
+SCH-U360: 1
+SCH-U460P: 2
+SCP-2700: 5
+SCP-3810: 4
+SCP-6780: 1
+SCP6760/Incognito: 8
+Sensation 4G: 818
+Sensation XL: 2
+Sensation: 5
+SGH A867/Eternity: 4
+SGH A887/Solstice: 47
+SGH T359/Smiley: 1
+SGH-A797/Mariner: 1
+SGH-A817: 1
+SGH-A847: 1
+SGH-A927: 1
+SGH-I577: 513
+SGH-i677: 1
+SGH-I717: 1176
+SGH-I727: 1757
+SGH-I727R: 3
+SGH-I747: 2306
+SGH-I747M: 7
+SGH-I777: 1205
+SGH-i827: 92
+SGH-I847: 157
+SGH-I857: 54
+SGH-I896 Captivate: 1
+SGH-I897 Captivate: 781
+SGH-i917R/Focus: 9
+SGH-I927: 498
+SGH-I987: 12
+SGH-I997 Infuse 4G: 1687
+SGH-T401G: 6
+SGH-T499: 238
+SGH-T589 Gravity Smart: 219
+SGH-T589R: 1
+SGH-T679: 1458
+SGH-T759 Exhibit 4G: 1175
+SGH-T839/T-Mobile Sidekick 4G: 583
+SGH-T849: 37
+SGH-T859: 21
+SGH-T869: 4
+SGH-T959 Vibrant: 400
+SGH-T959V: 1399
+SGH-T989: 2358
+SGH-T989D: 2
+SGH-T999: 2135
+SHV-E160S: 2
+SHW M110S/Galaxy S: 3
+SHW-M250S Galaxy S2: 2
+SHW-M380 Galaxy Tab 10.1: 1
+SHW-M440S: 1
+sk17a Xperia Mini Pro: 1
+SK17i Mango: 2
+SL101/Eee Pad Slider: 6
+Slate8: 6
+Smart Pad M-MP711I: 17
+SPH-D600 Conquer: 440
+SPH-D700/Epic 4G: 1623
+SPH-D710: 5219
+SPH-L300: 85
+SPH-L710: 3751
+SPH-M260: 5
+SPH-M350: 1
+SPH-M580: 358
+SPH-M820: 2470
+SPH-M900/Moment: 48
+SPH-M910: 148
+SPH-M920: 113
+SPH-M930: 1280
+SPH-P100: 131
+Springboard: 17
+ST17i: 1
+ST18i: 2
+ST25a: 1
+ST25i: 4
+Status: 28
+Streak 7: 74
+Streak: 156
+SU950: 2
+Superpad i7: 8
+SX-SP700A: 7
+T3020: 10
+T408: 16
+T528g: 6
+T703: 23
+T9292/HD7: 2
+Tab A73: 1
+Tablet S: 95
+Tablet: 2
+Tattoo: 14
+TB782B: 16
+TF201: 166
+TF300T: 336
+TITANIUM: 1
+TouchPad: 33
+TPA60W/TPA60W: 2
+TU880: 2
+TXT8026 (Cricket Wireless): 1
+U8100: 14
+U8500: 17
+U8651: 410
+U8652: 316
+U8800 Pro: 1
+U8800: 304
+U8815: 1
+U8860: 2
+U9000: 5
+U9200: 2
+UM840: 1
+UN200: 3
+UPC-300-2.2: 7
+US670: 172
+US740/Apex: 22
+US760/Genesis: 85
+US855 Optimus Black: 1064
+V889D: 180
+V8: 1
+V900: 24
+Venture: 87
+Venue: 3
+ViewPad 7: 1
+Ville: 600
+Vision: 5
+VM670: 1546
+VM701: 211
+VM8650: 9
+VN271: 1
+VS660/Vortex: 350
+VS700: 352
+VS840: 1126
+VS910/Revolution: 429
+VS920: 541
+VTAB1008: 132
+Wii: 7
+Wildfire S: 156
+Wildfire: 3
+WT19: 2
+WX415 Heartland: 2
+WX430: 1
+WX435: 275
+WX445/Ciena: 13
+X10 Mini Pro U20i: 12
+X10a: 51
+X10i: 4
+X315e: 2
+X500: 1426
+X515E: 21
+Xoom MZ505: 22
+Xperia X8: 5
+XT530: 1
+XT603: 76
+XT682: 1
+XT701/Milestone: 2
+XT720 Milestone: 11
+XT860 4G: 1
+XT882: 43
+XT894: 216
+XT910: 7
+YP-G70 GALAXY S Wi-Fi 5.0: 163
+YP-GB70/WiFi 5.0: 2
+YP-GI: 73
+YP-GS1: 34
+Z221: 1
+Z710E Sensation: 24
+Z715e: 15
+Z990: 593
