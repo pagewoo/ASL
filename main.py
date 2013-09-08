@@ -75,6 +75,7 @@ app = webapp2.WSGIApplication([
     ('/wunderground/search', wunderground.SearchHandler),
     (r'/wunderground/conditions/(.*)', wunderground.ConditionsHandler),
     ('/_ah/channel/disconnected/', room.OnDisconnect),
+    (r'/peopleinroom/(.*)', room.PeopleInRoom),
 
     ('/searchrdio', searchRdio),
     ('/addrdiotag', addTag)

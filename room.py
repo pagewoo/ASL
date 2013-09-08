@@ -282,6 +282,18 @@ class OnDisconnect(webapp2.RequestHandler):
 			room.delete()
 		logging.error("Disconnected")
 
+
+class PeopleInRoom(webapp2.RequestHandler):
+	def get(self, room_name):
+		rooms = Room.gql('where room_name = :1', room_name).fetch(1000)
+		users = []
+		for room in rooms:
+			user = Users.gql('where user_id = :1', room.user_id).get()
+			users.append(user.to_dict())
+
+		self.response.out.write(json.dumps(users)))
+
+
 		
 
 
