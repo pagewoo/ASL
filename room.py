@@ -194,7 +194,7 @@ def mentions(message):
 	for match in matches:
 		username = match.replace('@','')
 		# add to user last mention
-		user = User.gql('where username = :1', username).get()
+		user = Users.gql('where username = :1', username).get()
 		if not user:
 			logging.warning("NO USER FOUND")
 		else:
@@ -217,9 +217,12 @@ def crunch_base(message):
 	crunch_results = []
 	p = re.compile(r'\^\w+')
 	matches =p.findall(message)
+	logging.info(matches)
 	for match in matches:
-		query = match.strip('^')
-		crunchbase = CrunchBase()
+		
+		query = match.replace('^', '')
+		logging.warning('QUERY = ' + str(query))
+		crunchbase = Crunchbase()
 		# lookup with crunchbase
 		crunch = crunchbase.company_summary(query)
 		crunch_results.append(crunch)
