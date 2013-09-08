@@ -18,9 +18,11 @@ def get_user_id(user_id):
 	user = users.get_current_user()
 	if user:
 		user_id = user.user_id()
+
 	else:
 		if not user_id:
 			user_id = str(uuid.uuid4())
+
 
 	return user_id
 
@@ -46,12 +48,48 @@ class ChangeRoom(webapp2.RequestHandler):
 			self.response.out.write('none')
 
 
+class GetMyProfile(webapp2.RequestHandler):
+	def get(self):
+		user_id = get_user_id(None)
+
+
+
+class UpdateUser(webapp2.RequestHandler):
+	def post(self):
+		user_id = get_user_id(None)
+		if user_id:
+			asl = json.loads(self.request.body)
+			user = Users.gql('where user_id = :1', user_id).get()
+			user.username = asl['username']
+			user.age = asl['age']
+			user.sex = asl['sex']
+			user.location = asl['location']
+			user.put()
+		else:
+			logging.error('USER NOT LOGGED IN!')
+
+
+def create_or_get_user(user_id):
+
+	user_obj = Users.gql('where name = :1', user_id).get()
+	if not user_obj:
+		user = Users()
+		if users.get_current_user():
+			user.username = users.get_current_user().nickname()
+		else:
+			user.username = user_id
+		user.user_id = user_id
+		user.put()	
+	return user_obj
+
 
 class EnterRoom(webapp2.RequestHandler):
 	def get(self, room_name):
 		# get the current user
 		
 		user_id = get_user_id(None)
+
+		gae_user = create_or_get_user(user_id)
 
 		if not room_name:
 			room_name = 'lobby'
@@ -152,10 +190,10 @@ def hashtags(message):
 
 
 def mentions(message):
-	p = re.compile(r'@+')
+	p = re.compile(r'@\w+')
 	matches =p.findall(message)
 	for match in matches:
-		username = match.strip('@')
+		username = match.replace('@','')
 		# add to user last mention
 		user = User.gql('where username == :1', username).get()
 		if not user:

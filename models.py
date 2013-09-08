@@ -6,6 +6,8 @@ from google.appengine.ext.webapp import blobstore_handlers
 
 class Users(db.Model):
 	username = db.StringProperty()
+	password = db.StringProperty()
+	user_id = db.StringProperty()
 	age = db.IntegerProperty()
 	sex = db.StringProperty()
 	last_mention = db.StringProperty()

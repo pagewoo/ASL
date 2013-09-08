@@ -1,6 +1,39 @@
 
 
-	<div style='padding:50px; padding-top:0px'>
+
+	<div style='padding:50px; padding-top:0px' ng-show='page=="edit_profile"'>
+
+		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
+				<div>
+					@
+					<input type='text' ng-model='user.username'>
+				
+				</div>
+				<div>
+					Age
+					<input type='text' ng-model='user.age'>
+				</div>
+				<div>
+					Sex
+					<input type='text' ng-model='user.sex'>
+				</div>
+				<div>
+					Location
+					<input type='text' ng-model='user.location'>
+				</div>
+				<div>
+					<a class='btn' ng-click='save_profile()' >Save Profile</a>
+				</div>
+		</div>
+
+	</div>
+
+
+	<div style='padding:50px; padding-top:0px' ng-show='page=="room"'>
+
+		<div style='pull-right'>
+			<a class='btn' ng-click='page="edit_profile"' >Edit Profile</a>
+		</div>
 
 		<div>
 				<input placeholder='Room Name' ng-model='room_name' type='text' ui-keypress='{enter:"change_room()"}'/>

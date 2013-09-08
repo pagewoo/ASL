@@ -30,6 +30,7 @@ app = webapp2.WSGIApplication([
     (r'/changeroom/(.*)/(.*)/(.*)', room.ChangeRoom),
 
     ('/sendmessage', room.SendMessage),
+    ('/getmyprofile', room.GetMyProfile),
     ('/crunchbase/search', crunchbase.SearchHandler),
     ('/crunchbase/company/(.*)/summary', crunchbase.SummaryHandler),
     (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),

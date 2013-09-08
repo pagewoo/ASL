@@ -9,6 +9,7 @@ if ((host === 'localhost') || (host == '127.0.0.1')) {
 
 function pageCtrl($scope, $http){
 
+  $scope.page = 'room';
   $scope.messages = [];
   $scope.home_page = host + '/b/index.html#';
   $scope.room_name = 'lobby'
@@ -26,6 +27,10 @@ function pageCtrl($scope, $http){
       socket.onmessage = $scope.onMessage;
       socket.onerror = $scope.onError;
       socket.onclose = $scope.onClose;
+
+      $http.get('/getmyprofile').success(function(data){
+        
+      }
 
     });
 
