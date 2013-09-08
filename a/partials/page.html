@@ -60,9 +60,9 @@
 		</div>
 
 		<div class='reg-box content' style='min-height:300px; min-width:20px; margin-top:1px'>
-			<div ng-repeat='message in messages' style='background:#dfd8e6; padding:8px; padding-left:12px; margin-bottom:1px'>
+			<div ng-repeat='message in messages' class='open' style='background:#dfd8e6; padding:8px; padding-left:12px; margin-bottom:1px'>
 
-				<div style='color:#7c58a1'>{{message.username | uppercase }}</div>
+				<div style='color:#7c58a1' class='light-font'>{{message.username | uppercase }}</div>
 				<div>{{message.message}}</div>
 
 				<div>
@@ -74,10 +74,10 @@
 
 		<div id='commands'>
 			<div class='pull-right'>
-				<a class='btn btn-success' ng-click='send_message()'>Send!</a>
+				<a class='btn btn-warning' style='border-radius:0px' ng-click='send_message()'>Send!</a>
 			</div>
 			<div style='margin-top:1px'>
-				<input style='width:calc(100% - 70px)' class="form-control" type='text' ui-keypress='{enter:"send_message()"}' ng-model='new_command' />
+				<input style='width:calc(100% - 65px); background:#fafafa; border-radius:0px' class="form-control open" type='text' ui-keypress='{enter:"send_message()"}' ng-model='new_command' />
 			</div>
 		</div>
 
