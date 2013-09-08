@@ -59,12 +59,24 @@ function pageCtrl($scope, $http){
     console.log('channel onOpened')
   }
 
+  $scope.play_rdio = function(token){
+    console.log('play rdio')
+    console.log(token)
+    R.player.play({source:token})
+  }
+
   $scope.onMessage = function(data){
     console.log('channel onMessage')
     var data = JSON.parse(data.data);
     $scope.messages.unshift(data);
     console.log('messages')
     console.log($scope.messages);
+    if (data.scan.hasOwnProperty('song')) {
+      radiokey = data.scan.song.radiokey
+      console.log('radiokey')
+      console.log(radiokey)
+      $scope.play_rdio(radiokey)
+    }
 
     $scope.$apply();
 
