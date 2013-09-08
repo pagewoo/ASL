@@ -250,8 +250,11 @@ def messsage_scan(message):
 
 	results = {'tag_success' : tag_success,
 			   'mention_success' : mention_success,
-			   'crunch_results' : crunch_results,
 			   'song_success' : song_success}
+
+	if crunch_results:
+		results['crunch_results'] = crunch_results,
+
 
 	return results
 
