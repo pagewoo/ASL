@@ -120,13 +120,14 @@ class EnterRoom(webapp2.RequestHandler):
 class SendMessage(webapp2.RequestHandler):
 	def post(self):
 		data = json.loads(self.request.body)
-		send_message(data)
-		logging.error('MESSAGE ' + str(data['message']))
 		scan = messsage_scan(data['message'])
+		send_message(data, scan)
+		logging.error('MESSAGE ' + str(data['message']))
 		self.response.out.write(json.dumps(scan))
 
 
-def send_message(data):
+def send_message(data, scan):
+	data['message']['scan'] = scan
 	message = data['message']
 	room_name = data['room_name']
 	logging.info('room ' + room_name)
@@ -190,7 +191,8 @@ def hashtags(message):
 
 def mentions(message):
 	p = re.compile(r'@\w+')
-	matches = p.findall(message['message'])
+
+	matches =p.findall(message['message'])
 	for match in matches:
 		username = match.replace('@','')
 		# add to user last mention
@@ -213,8 +215,9 @@ def play_song(message):
 
 
 def crunch_base(message):
+	message = message['message']
 	crunch_results = []
-	p = re.compile(r'\^+')
+	p = re.compile(r'\^\w+')
 	matches =p.findall(message)
 	for match in matches:
 		query = match.strip('^')
@@ -239,7 +242,7 @@ def messsage_scan(message):
 
 	tag_success = hashtags(message)
 	mention_success = mentions(message)
-	# crunch_results = crunch_base(message)
+	crunch_results = crunch_base(message)
 	# song_success = play_song(message)
 
 	results = {'tag_success' : tag_success,
