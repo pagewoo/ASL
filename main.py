@@ -55,6 +55,7 @@ class addTag(webapp2.RequestHandler):
         tag = obj['tagname'],
         songname = obj['songname'],
         radiokey = obj['radiokey'],
+        song_data = json.dumps(obj)
       )
       rdio_song.put()
 
