@@ -168,7 +168,7 @@ def send_to_room(hashtag, message):
 	data = {}
 	data['message'] = {'message':message}
 	data['room_name'] = room.room_name
-	send_message(data)
+	send_message(data, {})
 	return True
 
 
