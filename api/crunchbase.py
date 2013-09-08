@@ -30,6 +30,18 @@ class Crunchbase():
         if not r or not r.get('name'):
             return None
 
+        def investors(response):
+            if not response.get('funding_rounds'):
+                return
+            for r in response.get('funding_rounds'):
+                if not r.get('investments'):
+                    continue
+                for i in r.get('investments'):
+                    if i.get('financial_org'):
+                        yield i.get('financial_org').get('name')
+                    if i.get('person'):
+                        yield ' '.join([i.get('person').get('first_name'), i.get('person').get('last_name')])
+
         return {'name': r.get('name'),
                 'description': r.get('description'),
                 'website': r.get('homepage_url'),
@@ -38,4 +50,6 @@ class Crunchbase():
                 'phone': r.get('phone_number'),
                 'email': r.get('email_address'),
                 'employees': r.get('number_of_employees'),
-                'founded': '%s/%s' % (r.get('founded_month'), r.get('founded_year'))}
+                'founded': '%s/%s' % (r.get('founded_month'), r.get('founded_year')),
+                'funding': r.get('total_money_raised'),
+                'investors': list(investors(r))}
