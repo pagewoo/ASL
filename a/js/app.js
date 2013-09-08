@@ -23,12 +23,6 @@ nearApp.run(function($rootScope, $http){
         return food
     }
 
-    $rootScope.home_page = host + '/b/index.html#';
-
-    $http.get('/logins/getloggedinuser').success(function(data){
-
-    });
-
 })
 
 nearApp.directive('toggle', function() {

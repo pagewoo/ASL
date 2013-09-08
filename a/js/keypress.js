@@ -1,5 +1,8 @@
 angular.module('ui.keypress',[]).
 factory('keypressHelper', ['$parse', function keypress($parse){
+
+  console.log('keypress!!!')
+
   var keysByCode = {
     8: 'backspace',
     9: 'tab',
