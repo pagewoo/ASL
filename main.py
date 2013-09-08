@@ -46,7 +46,6 @@ class addTag(webapp2.RequestHandler):
   def post(self):
     obj = json.loads(self.request.body)
     logging.info(obj)
-    obj = obj[0]
     rdio_song = RdioTagDS.gql('where radiokey = :1 and tag = :2', obj['radiokey'], obj['tagname']).get()
     if rdio_song:
     	return
@@ -55,7 +54,7 @@ class addTag(webapp2.RequestHandler):
         tag = obj['tagname'],
         songname = obj['songname'],
         radiokey = obj['radiokey'],
-        song_data = json.dumps(obj)
+        song_data = json.dumps(obj['song_data'])
       )
       rdio_song.put()
 
@@ -75,6 +74,7 @@ app = webapp2.WSGIApplication([
     (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),
     ('/wunderground/search', wunderground.SearchHandler),
     (r'/wunderground/conditions/(.*)', wunderground.ConditionsHandler),
+    ('/_ah/channel/disconnected/', room.OnDisconnect),
 
     ('/searchrdio', searchRdio),
     ('/addrdiotag', addTag)

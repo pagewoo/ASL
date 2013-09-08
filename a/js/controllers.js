@@ -145,8 +145,8 @@ function musicCtrl($scope, $http) {
     console.log(songname)
     $scope.tag_object.radiokey = token
     $scope.tag_object.songname = songname
-    $scope.tag_object.song_data = $scope.results
-    $http.post('/addrdiotag', $scope.tag_object.song_data).success(function(data){
+    $scope.tag_object.song_data = $scope.results[0]
+    $http.post('/addrdiotag', $scope.tag_object).success(function(data){
       console.log(data)
       $scope.tag_object.tagname = ''
       $scope.tagit = false
