@@ -2,11 +2,15 @@
 
 	<div style='padding:50px; padding-top:0px'>
 
+		<div>
+				<input placeholder='Room Name' ng-model='room_name' type='text' ui-keypress='{enter:"change_room()"}'/>
+		</div>
+
 		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
 			<div ng-repeat='message in messages'>
 
 				<div>{{message.message}}</div>
-				
+
 			</div>	
 		</div>
 

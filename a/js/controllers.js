@@ -16,7 +16,9 @@ function pageCtrl($scope, $http){
   $scope.enter_room = function() {
 
     $http.get('/enterroom/' + $scope.room_name).success(function(data){
-      $scope.room_token = data;
+      $scope.room_token = data.token;
+      $scope.user_id = data.user_id;
+      $scope.old_room_name = $scope.room_name;
 
       channel = new goog.appengine.Channel($scope.room_token);
       socket = channel.open();
@@ -28,6 +30,19 @@ function pageCtrl($scope, $http){
     });
 
   }
+
+  $scope.change_room = function() {
+
+    $http.get('/changeroom/' + $scope.old_room_name + '/' + $scope.room_name + '/' + $scope.user_id).success(function(data){
+      if (data == 'none') {
+        window.location.reload();
+      }
+      $scope.room_token = data;
+      $scope.old_room_name = $scope.room_name;
+    });
+
+  }
+
 
   $scope.onOpened = function(data){
     console.log('channel onOpened')

@@ -26,6 +26,8 @@ class MainHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     (r'/enterroom/(.*)', room.EnterRoom),
+    (r'/changeroom/(.*)/(.*)/(.*)', room.ChangeRoom),
+
     ('/sendmessage', room.SendMessage),
     ('/crunchbase/search', crunchbase.SearchHandler),
     ('/crunchbase/company/(.*)/summary', crunchbase.SummaryHandler),

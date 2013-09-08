@@ -10,7 +10,9 @@ class Users(db.Model):
 	sex = db.StringProperty()
 	last_mention = db.StringProperty()
 		
+
 class Room(db.Model):
-	user_id = db.TextProperty()
+	user_id = db.StringProperty()
 	room_name = db.StringProperty()
+	token = db.StringProperty()
 	entered = db.DateTimeProperty(auto_now_add=True)
