@@ -24,3 +24,18 @@ class Crunchbase():
 
     def company(self, name):
         return self.fetch('company/%s.js' % name)
+
+    def company_summary(self, name):
+        r = self.company(name)
+        if not r or not r.get('name'):
+            return None
+
+        return {'name': r.get('name'),
+                'description': r.get('description'),
+                'website': r.get('homepage_url'),
+                'twitter': r.get('twitter_username'),
+                'category': r.get('category_code'),
+                'phone': r.get('phone_number'),
+                'email': r.get('email_address'),
+                'employees': r.get('number_of_employees'),
+                'founded': '%s/%s' % (r.get('founded_month'), r.get('founded_year'))}
