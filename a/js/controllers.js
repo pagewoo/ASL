@@ -72,6 +72,7 @@ function pageCtrl($scope, $http){
     console.log('messages')
     console.log($scope.messages);
     if (data.scan.hasOwnProperty('song')) {
+      $scope.song_message = data;
       radiokey = data.scan.song.radiokey
       console.log('radiokey')
       console.log(radiokey)

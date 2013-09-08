@@ -1,4 +1,74 @@
 
+	<div style='padding:50px; padding-top:0px' ng-show='page=="commands"'>
+
+		<div style='height:40px'>
+			<div class='pull-right' ng-show='user_profile.real_user'>
+				<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a> {{user_profile.last_mention}}
+			</div>
+
+			<div class='pull-right' ng-show='!user_profile.real_user'>
+				<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
+			</div>
+		</div>
+
+		<div style='background:#a07bc7'>
+			<div class='pull-right'>
+				<div  style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' >COMMANDS</div>
+			</div>		
+
+			<div>
+				<img style='height:50px' header-logo src="img/asl_white.png">
+			</div>
+		</div>
+
+		<div class='reg-box content light-font' style='min-height:300px; min-width:20px; font-size:22px'>
+			<div style='height:95px; '>
+				<div class='pull-left' style='padding:20px; background:#63d8e0; width:88px' ><img src='img/1.png'/></div>
+				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
+					Play a Song
+				</div>
+				
+			</div>
+
+			<div style='height:95px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#ed9d8b; width:88px'><img src='img/2.png'/></div>
+				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
+					Crunchbase Lookup
+				</div>		
+			</div>
+
+			<div style='height:95px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#65dec0; width:88px'><img src='img/3.png'/></div>
+				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
+					Hashtag
+				</div>
+				
+			</div>
+
+			<div style='height:95px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#f5c973; width:88px'><img src='img/4.png'/></div>
+				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
+					At Mention
+				</div>
+				
+			</div>
+
+			<div style='height:95px; margin-top:5px'>
+				<div class='pull-left' style='padding:20px; background:#62caf1; width:88px'><img src='img/5.png'/></div>
+				<div class='pull-left' style='width:calc(100% - 90px); margin-top:30px; padding-left:10px'>
+					Weather Report
+				</div>
+			</div>
+
+			<div style='margin:10px; margin-bottom:90px;'>
+			<a class='btn btn-warning pull-right' ng-click='page="room"'>Ok!</a>
+			</div>
+
+		</div>
+
+	</div>
+
+
 
 
 	<div style='padding:50px; padding-top:0px' ng-show='page=="edit_profile"'>
@@ -15,7 +85,7 @@
 
 		<div style='background:#a07bc7'>
 			<div class='pull-right'>
-				<div  style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' >Your Profile</div>
+				<div  style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' >YOUR PROFILE</div>
 				<div ng-show='edit_room' style='margin:8px; text-align:right'>
 					<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/> 
 					<div style='margin-top:14px'>
@@ -102,8 +172,14 @@
 			</div>
 		</div>
 
+		<div>
+			
+			<img src='{{song_message.scan.song_data.icon}}' />
+				
+		</div>		
+
 		<div style='background:#00c4d0'>
-			<div ng-show='!edit_room' class='pull-right' style='font-size:17px; background:#000; color:#fff; padding:10px; padding-left:20px; padding-right:20px'>
+			<div ng-show='!edit_room' class='pull-right' style='font-size:17px; background:#000; color:#fff; padding:10px; padding-left:20px; padding-right:20px' ng-click='page="commands"'>
 				VIEW COMMANDS
 			</div>		
 
@@ -113,16 +189,17 @@
 				
 		</div>
 
-		<div class='reg-box content' style='min-height:300px; min-width:20px; margin-top:1px'>
+		<div class='reg-box content' style='min-width:20px; margin-top:1px; height:400px; overflow-y:auto; overflow-x:hidden'>
 			<div ng-repeat='message in messages' class='open' style='background:#dfd8e6; padding:8px; padding-left:12px; margin-bottom:1px'>
 
 				<div style='color:#7c58a1' class='light-font'>{{message.username | uppercase }}</div>
 				<div>{{message.message}}</div>
 
-				<div>
-
+				<div ng-show='message.scan.crunch_results' style='background:#c2e6e8; border: 1px solid #666; padding:8px; margin-top:5px'>
+					<div style='color:#333' class='light-font'>{{message.scan.crunch_results[0].name | uppercase}}</div>
+					<div style='font-size:12px'>{{message.scan.crunch_results[0].description}}.</div>
+					<div style='font-size:12px'>{{message.scan.crunch_results[0].employees}} employees. {{message.scan.crunch_results[0].funding}} in funding. </div>
 				</div>
-
 			</div>	
 		</div>
 
