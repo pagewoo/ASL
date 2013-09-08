@@ -60,6 +60,66 @@ class SendMessage(webapp2.RequestHandler):
 
 		self.response.out.write('complete')
 
+"!?"
+"?!"
+"!!"
+
+def hyphenate(lt):
+	result = ''
+	for i, element in enumerate(lt):
+		result = ''
+		result += element
+		if i != len(lt) -1:
+			result += '-'
+	return result
 
 
+def send_to_room(hashtag):
+	word = hashtag.strip('#')
+
+	room = Room.gql('where room_name = :1', word).get()
+	if not room:
+		logging.warning('No Room Found')
+		return False
+
+
+		
+
+def messsage_scan(message):
+	symbols = [ '#' : 'topic',
+				'@' :'user',
+				'!' : 'music', 
+				'^' : 'lookup',
+			    '*' : 'calendar']
+
+	p = re.compile(r'#+')
+	matches = p.findall(message)
+	if matches:
+		for match in matches:
+			# add to topic list
+			send_to_room(match)
+
+	p = re.compile(r'@+')
+	matches =p.findall(message)
+	if matches:
+		# add to user stream
+
+	p = re.compile(r'!+')
+	matches =p.findall(message)
+	if matches:
+		# play song
+
+	p = re.compile(r'\^+')
+	matches =p.findall(message)
+	if matches:
+		# lookup with crunchbase
+
+	p = re.compile(r'\*+')
+	matches =p.findall(message)
+	if matches:
+		# add to calendar
+
+
+
+				
 
