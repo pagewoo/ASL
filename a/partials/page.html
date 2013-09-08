@@ -157,7 +157,7 @@
 		<div style='background:#a07bc7'>
 			<div class='pull-right'>
 				<div ng-show='!edit_room' style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' ng-click='edit_room=true'>{{room_name}}</div>
-				<div ng-show='edit_room' style='margin:8px; text-align:right'>
+				<div ng-show='edit_room' style='margin:8px; text-align:right; margin-bottom:0px'>
 					<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/> 
 					<div style='margin-top:14px'>
 						<a class='btn btn-warning' style='margin-right:4px' ng-click='edit_room=false'>Cancel</a>
