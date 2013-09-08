@@ -62,17 +62,18 @@ class SaveProfile(webapp2.RequestHandler):
 		user.username = asl['username']
 		user.age = int(asl['age'])
 		user.sex = asl['sex']
-		user.location = asl['location']
+		user.loc = asl['loc']
 		user.put()
 
 
 def create_or_get_user(user_id):
 
-	user_obj = Users.gql('where name = :1', user_id).get()
+	user_obj = Users.gql('WHERE user_id = :1', user_id).get()
 	if not user_obj:
 		user_obj = Users()
 		if users.get_current_user():
 			user_obj.username = users.get_current_user().nickname()
+			user_obj.real_user = True
 		else:
 			user_obj.username = user_id
 		user_obj.user_id = user_id
@@ -190,6 +191,7 @@ def hashtags(message):
 
 def mentions(message):
 	p = re.compile(r'@\w+')
+
 	matches =p.findall(message['message'])
 	for match in matches:
 		username = match.replace('@','')
