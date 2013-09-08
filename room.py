@@ -54,19 +54,16 @@ class GetMyProfile(webapp2.RequestHandler):
 
 
 
-class UpdateUser(webapp2.RequestHandler):
+class SaveProfile(webapp2.RequestHandler):
 	def post(self):
-		user_id = get_user_id(None)
-		if user_id:
-			asl = json.loads(self.request.body)
-			user = Users.gql('where user_id = :1', user_id).get()
-			user.username = asl['username']
-			user.age = asl['age']
-			user.sex = asl['sex']
-			user.location = asl['location']
-			user.put()
-		else:
-			logging.error('USER NOT LOGGED IN!')
+		
+		asl = json.loads(self.request.body)
+		user = Users.gql('WHERE user_id = :1', asl['user_id']).get()
+		user.username = asl['username']
+		user.age = int(asl['age'])
+		user.sex = asl['sex']
+		user.location = asl['location']
+		user.put()
 
 
 def create_or_get_user(user_id):
@@ -124,7 +121,7 @@ class SendMessage(webapp2.RequestHandler):
 		data = json.loads(self.request.body)
 		send_message(data)
 		logging.error('MESSAGE ' + str(data['message']))
-		scan = messsage_scan(data['message']['message'])
+		scan = messsage_scan(data['message'])
 		self.response.out.write(json.dumps(scan))
 
 
@@ -174,6 +171,7 @@ def send_to_room(hashtag, message):
 
 
 def hashtags(message):
+	message = message['message']
 	p = re.compile(r'#\w+')
 	matches = p.findall(message)
 	if matches:
@@ -195,11 +193,12 @@ def mentions(message):
 	for match in matches:
 		username = match.replace('@','')
 		# add to user last mention
-		user = User.gql('where username == :1', username).get()
+		user = User.gql('where username = :1', username).get()
 		if not user:
 			logging.warning("NO USER FOUND")
 		else:
-			user.last_mention = message
+			user.last_mention = message['message']
+			user.last_mentioner = message['username']
 			user.put()
 			logging.info("Last Message saved")
 
@@ -238,7 +237,7 @@ def messsage_scan(message):
 	song_success = None
 
 	tag_success = hashtags(message)
-	# mention_success = mentions(message)
+	mention_success = mentions(message)
 	# crunch_results = crunch_base(message)
 	# song_success = play_song(message)
 

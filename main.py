@@ -29,6 +29,8 @@ app = webapp2.WSGIApplication([
     (r'/enterroom/(.*)', room.EnterRoom),
     (r'/changeroom/(.*)/(.*)/(.*)', room.ChangeRoom),
 
+    ('/login', room.Login),
+    ('/saveprofile', room.SaveProfile),
     ('/sendmessage', room.SendMessage),
     ('/getmyprofile', room.GetMyProfile),
     ('/crunchbase/search', crunchbase.SearchHandler),

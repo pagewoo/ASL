@@ -35,8 +35,9 @@ function pageCtrl($scope, $http){
   }
 
   $scope.save_profile = function() {
-    $http.post('/saveprofile/' + $scope.user_id, $scope.user_profile).success(function(data){
+    $http.post('/saveprofile', $scope.user_profile).success(function(data){
       console.log('profile saved')
+      $scope.page = 'room'
     });
   }
 
@@ -78,13 +79,15 @@ function pageCtrl($scope, $http){
 
   $scope.enter_room();
 
-
+  $scope.login = function() {
+    window.location = '/login'
+  }
 
   $scope.send_message = function() {
 
     var obj = {}
     obj.room_name = $scope.room_name;
-    obj.message = {'message':$scope.new_command}
+    obj.message = {'message':$scope.new_command, 'username':$scope.user_profile.username, 'room':$scope.room_name}
 
     $scope.new_command = '';
 

@@ -6,20 +6,20 @@
 		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
 				<div>
 					@
-					<input type='text' ng-model='user_profile.username'>
+					<input class="form-control" ng-model='user_profile.username'>
 				
 				</div>
 				<div>
 					Age
-					<input type='text' ng-model='user_profile.age'>
+					<input class="form-control" ng-model='user_profile.age'>
 				</div>
 				<div>
 					Sex
-					<input type='text' ng-model='user_profile.sex'>
-				</div>
+					<input class="form-control" ng-model='user_profile.sex'>
+				</div>R
 				<div>
 					Location
-					<input type='text' ng-model='user_profile.location'>
+					<input class="form-control" ng-model='user_profile.location'>
 				</div>
 				<div>
 					<a class='btn' ng-click='save_profile()' >Save Profile</a>
@@ -31,12 +31,16 @@
 
 	<div style='padding:50px; padding-top:0px' ng-show='page=="room"'>
 
-		<div style='pull-right'>
-			<a class='btn' ng-click='page="edit_profile"' >Edit Profile</a>
+		<div class='pull-right' ng-show='user_profile.real_user'>
+			<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a> {{user_profile.last_mention}}
+		</div>
+
+		<div class='pull-right' ng-show='!user_profile.real_user'>
+			<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
 		</div>
 
 		<div>
-				<input placeholder='Room Name' ng-model='room_name' type='text' ui-keypress='{enter:"change_room()"}'/>
+			<input style='width:calc(100% - 70px)' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/>
 		</div>
 
 		<div class='reg-box content' style='min-height:300px; min-width:20px;'>
@@ -49,10 +53,10 @@
 
 		<div id='commands'>
 			<div class='pull-right'>
-				<a class='btn' ng-click='send_message()'>Send!</a>
+				<a class='btn btn-success' ng-click='send_message()'>Send!</a>
 			</div>
 			<div style='margin-top:1px'>
-				<input style='width:calc(100% - 80px)' type='text' ui-keypress='{enter:"send_message()"}' ng-model='new_command' />
+				<input style='width:calc(100% - 70px)' class="form-control" type='text' ui-keypress='{enter:"send_message()"}' ng-model='new_command' />
 			</div>
 		</div>
 

@@ -11,6 +11,9 @@ class Users(db.Model):
 	sex = db.StringProperty()
 	loc = db.StringProperty()
 	last_mention = db.StringProperty()
+	last_mentioner = db.StringProperty()
+	real_user = db.BooleanProperty()
+	date_created = db.DateTimeProperty(auto_now_add=True)
 
 	def to_dict(self):
 		obj = {}
@@ -19,6 +22,9 @@ class Users(db.Model):
 		obj['loc'] = self.loc
 		obj['user_id'] = self.user_id
 		obj['username'] = self.username
+		obj['last_mention'] = self.last_mention
+		obj['real_user'] = self.real_user
+		obj['last_mentioner'] = self.last_mentioner
 
 		return obj
 		
@@ -27,4 +33,4 @@ class Room(db.Model):
 	user_id = db.StringProperty()
 	room_name = db.StringProperty()
 	token = db.StringProperty()
-	entered = db.DateTimeProperty(auto_now_add=True)
+	entered = db.DateTimeProperty(auto_now=True)
