@@ -60,9 +60,6 @@ class SendMessage(webapp2.RequestHandler):
 
 		self.response.out.write('complete')
 
-"!?"
-"?!"
-"!!"
 
 def hyphenate(lt):
 	result = ''
@@ -74,7 +71,7 @@ def hyphenate(lt):
 	return result
 
 
-def send_to_room(hashtag):
+def send_to_room(hashtag, message):
 	word = hashtag.strip('#')
 
 	room = Room.gql('where room_name = :1', word).get()
@@ -82,8 +79,8 @@ def send_to_room(hashtag):
 		logging.warning('No Room Found')
 		return False
 
+	send_message(message)
 
-		
 
 def messsage_scan(message):
 	symbols = [ '#' : 'topic',
