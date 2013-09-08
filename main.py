@@ -15,11 +15,15 @@
 # limitations under the License.
 #
 import webapp2
+import room
+from models import *
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        self.redirect('/a/index.html')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    (r'/enterroom/(.*)', room.EnterRoom),
+    ('/sendmessage', room.SendMessage)
 ], debug=True)
