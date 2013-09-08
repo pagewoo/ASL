@@ -11,7 +11,7 @@ from google.appengine.api import users
 from google.appengine.ext import db
 from models import *
 import uuid
-from api.crunchbase import Crunchbase
+from api.jcrunch import Crunchbase
 
 
 def get_user_id(user_id):
@@ -214,11 +214,12 @@ def play_song(message):
 	if len(matches) >= 1:
 		logging.info(matches)
 		songs = RdioTagDS.gql('where tag = :1', matches[0]).fetch(10)
-		if len(matches) > 1:
-			rando = random.randint(0,len(songs)-1)
-		else:
-			rando = 0
-		chosen_song = songs[rando]
+		if songs:
+			if len(songs) > 1:
+				rando = random.randint(0,len(songs)-1)
+			else:
+				rando = 0
+			chosen_song = songs[rando]
 
 	return chosen_song
 
