@@ -72,6 +72,9 @@ function pageCtrl($scope, $http){
     console.log('messages')
     console.log($scope.messages);
     if (data.scan.hasOwnProperty('song')) {
+
+      $scope.song_message = data;
+      console.log('song icon ' + $scope.song_message.scan.song.song_data.icon400)
       radiokey = data.scan.song.radiokey
       console.log('radiokey')
       console.log(radiokey)
@@ -118,6 +121,12 @@ var fake_results = [{"radioKey": "sr16559751", "baseIcon": "album/c/2/2/00000000
 
 function musicCtrl($scope, $http) {
 
+  $scope.is_auth = function(){
+    var token = R.accessToken()  
+    console.log(token)
+  }
+
+  $scope.is_auth();
 
   console.log('rdio home ctrl')
   $scope.play_token = []

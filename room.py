@@ -291,7 +291,7 @@ class PeopleInRoom(webapp2.RequestHandler):
 			user = Users.gql('where user_id = :1', room.user_id).get()
 			users.append(user.to_dict())
 
-		self.response.out.write(json.dumps(users)))
+		self.response.out.write(json.dumps(users))
 
 
 		
