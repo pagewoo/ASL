@@ -46,6 +46,7 @@ class addTag(webapp2.RequestHandler):
   def post(self):
     obj = json.loads(self.request.body)
     logging.info(obj)
+    obj = obj[0]
     rdio_song = RdioTagDS.gql('where radiokey = :1 and tag = :2', obj['radiokey'], obj['tagname']).get()
     if rdio_song:
     	return
