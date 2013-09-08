@@ -17,6 +17,7 @@
 import webapp2
 import room
 import crunchbase
+import wunderground
 from models import *
 
 class MainHandler(webapp2.RequestHandler):
@@ -30,4 +31,6 @@ app = webapp2.WSGIApplication([
     ('/crunchbase/search', crunchbase.SearchHandler),
     ('/crunchbase/company/(.*)/summary', crunchbase.SummaryHandler),
     (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),
+    ('/wunderground/search', wunderground.SearchHandler),
+    (r'/wunderground/conditions/(.*)', wunderground.ConditionsHandler),
 ], debug=True)

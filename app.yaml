@@ -6,6 +6,7 @@ threadsafe: yes
 
 env_variables:
   CRUNCHBASE_KEY: '3pza5c8uxppfm8y8sx5zyp4a'
+  WUNDERGROUND_KEY: '5e859a4797c988ed'
 
 handlers:
 - url: /favicon\.ico
