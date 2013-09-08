@@ -8,6 +8,7 @@ if ((host === 'localhost') || (host == '127.0.0.1')) {
 var nearApp = angular.module('myApp', ['uiSlider', 'myApp.filters', 'myApp.services', 'myApp.directives', 'ui.keypress', 'ui.utils', 'ui.bootstrap', 'ui.bootstrap.dialog']).
   config(['$routeProvider', function($routeProvider, $location) {
     $routeProvider.when('/page', {templateUrl: 'partials/page.html', controller: pageCtrl});
+    $routeProvider.when('/music', {templateUrl: 'partials/music.html', controller: musicCtrl});
 
 
     $routeProvider.otherwise({redirectTo: '/page'});

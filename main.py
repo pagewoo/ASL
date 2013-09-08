@@ -20,6 +20,11 @@ import crunchbase
 import wunderground
 from models import *
 from google.appengine.api import users
+from rdio import Rdio
+import logging
+import json
+
+rdio = Rdio(("vefvbbxvvgmww9hgqtmbgkwr", "nPKmfwxR3w"))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -28,6 +33,37 @@ class MainHandler(webapp2.RequestHandler):
 class Login(webapp2.RequestHandler):
     def get(self):
         self.redirect(users.create_login_url('/'))
+
+class searchRdio(webapp2.RequestHandler):
+  def get(self):
+    query = self.request.get('query')
+    type = self.request.get('type')
+    search = rdio.call('search', {'query':query, 'types':type})
+    logging.info(rdio)
+    self.response.write(json.dumps(search))
+
+class addTag(webapp2.RequestHandler):
+  def post(self):
+    obj = json.loads(self.request.body)
+    logging.info(obj)
+    rdio_song = RdioTagDS.gql('where radiokey = :1', obj['radiokey']).get()
+    if rdio_song:
+      tags = json.loads(rdio_song.tags)
+      if obj['tagname'] in tags:
+        return
+      else:
+        tags[obj['tagname']] = 1
+        rdio_song.tags = json.dumps(tags)
+        rdio_song.put()
+    else:
+      rdio_song = RdioTagDS(
+        tags = json.dumps({obj['tagname']:1}),
+        songname = obj['songname'],
+        radiokey = obj['radiokey'],
+      )
+      rdio_song.put()
+
+    self.response.write('tag added')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
@@ -43,4 +79,7 @@ app = webapp2.WSGIApplication([
     (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),
     ('/wunderground/search', wunderground.SearchHandler),
     (r'/wunderground/conditions/(.*)', wunderground.ConditionsHandler),
+
+    ('/searchrdio', searchRdio),
+    ('/addrdiotag', addTag)
 ], debug=True)

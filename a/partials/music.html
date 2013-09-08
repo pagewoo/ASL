@@ -1,0 +1,36 @@
+  <div style="margin:auto; width:320px; height:50px; background:black; padding-top:5px;">
+    <div class="btn-group" >
+      <button class="btn btn-large" ng-click="play_rdio()">Play</button>
+      <button class="btn btn-large" ng-click="pause_rdio()">Pause</button>
+      <button class="btn btn-large" ng-click="next_rdio()">Prev</button>
+      <button class="btn btn-large" ng-click="next_rdio()">Next</button>
+    </div>
+  </div>
+
+  <div style="margin:auto; width:320px; height:40px; background:#333; padding-top:5px;">
+    <div class="input-append">
+      <input class="span3" id="appendedInputButton" type="text" ng-model="search_query"> 
+      <button class="btn" type="button" ng-click="search_rdio()">search rdio</button>
+    </div>
+  </div>
+
+  <div class="enter_the_dragon">
+
+<div ng-repeat="r in results" style="width:320px; height:100px; margin:auto; border-bottom:2px solid #333; padding-top:10px;">
+  <div style="width:70px;  text-align:left;" class="pull-left"><img src="{{r.icon}}" width="70px"></div>
+  <div style="width:240px; padding-left:10px; text-align:left;" class="pull-left">
+    {{r.name}}
+    <br>
+    <div class="btn-group">
+      <button ng-click="play_rdio(r.radioKey)" class="btn btn-primary"> play song </button>
+      <button ng-click="nametag(r.radioKey); tagit =! tagit" class="btn btn-warning">tag it!</button>
+      <div class="input-append" style="margin-top:10px;" ng-show="tagit">
+      <input class="span2" id="appendedInputButton" type="text" ng-model="tag_object.tagname"> 
+      <button class="btn btn-" type="button" ng-click="rdio_tag(r.radioKey, r.name)">add tag</button>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+
