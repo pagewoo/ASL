@@ -43,6 +43,7 @@ function pageCtrl($scope, $http){
 
   $scope.change_room = function() {
 
+    $scope.edit_room = false;
     $http.get('/changeroom/' + $scope.old_room_name + '/' + $scope.room_name + '/' + $scope.user_id).success(function(data){
       if (data == 'none') {
         window.location.reload();
@@ -61,7 +62,7 @@ function pageCtrl($scope, $http){
   $scope.onMessage = function(data){
     console.log('channel onMessage')
     var data = JSON.parse(data.data);
-    $scope.messages.push(data);
+    $scope.messages.unshift(data);
     console.log('messages')
     console.log($scope.messages);
 

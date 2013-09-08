@@ -31,22 +31,43 @@
 
 	<div style='padding:50px; padding-top:0px;' ng-show='page=="room"'>
 
-		<div class='pull-right' ng-show='user_profile.real_user'>
-			<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a> {{user_profile.last_mention}}
+		<div style='height:40px'>
+			<div class='pull-right' ng-show='user_profile.real_user'>
+				<a class='btn' ng-click='page="edit_profile"' >@{{user_profile.username}}</a> {{user_profile.last_mention}}
+			</div>
+
+			<div class='pull-right' ng-show='!user_profile.real_user'>
+				<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
+			</div>
 		</div>
 
-		<div class='pull-right' ng-show='!user_profile.real_user'>
-			<a class='btn btn-primary' ng-click='login()' ><i class='icon-user icon-white open-bold small-font'></i> Login</a>
-		</div>
+		<div style='background:#a07bc7'>
+			<div class='pull-right' ng-show='!user_profile.real_user'>
+				<div ng-show='!edit_room' style='color:white; font-size:21px; margin:9px; cursor:pointer' class='light-font' ng-click='edit_room=true'>{{room_name}}</div>
+				<div ng-show='edit_room' style='margin:8px; text-align:right'>
+					<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/> 
+					<div style='margin-top:14px'>
+						<a class='btn btn-warning' style='margin-right:4px' ng-click='edit_room=false'>Cancel</a>
+						<a class='btn btn-success' ng-click='change_room()'>Save</a>
+					</div>
+				</div>
+			</div>		
 
-		<div>
-			<input style='width:200px' placeholder='Room Name' ng-model='room_name' class="form-control" ui-keypress='{enter:"change_room()"}'/>
+			<div>
+				<img style='height:50px' header-logo src="img/asl_white.png">
+				
+		</div>
 		</div>
 
 		<div class='reg-box content' style='min-height:300px; min-width:20px; margin-top:1px'>
-			<div ng-repeat='message in messages'>
+			<div ng-repeat='message in messages' style='background:#dfd8e6; padding:8px; padding-left:12px; margin-bottom:1px'>
 
+				<div style='color:#7c58a1'>{{message.username | uppercase }}</div>
 				<div>{{message.message}}</div>
+
+				<div>
+
+				</div>
 
 			</div>	
 		</div>

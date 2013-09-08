@@ -10,7 +10,7 @@ class Crunchbase():
     def fetch(self, uri):
         url = 'http://api.crunchbase.com/v/1/%s%sapi_key=%s' % (uri, '&' if '?' in uri else '?', self.key)
         response = urlfetch.fetch(url)
-        return json.loads(r^Cresponse.content)
+        return json.loads(response.content)
 
     def search(self, q):
         return self.fetch('search.js?query=%s' % q)
