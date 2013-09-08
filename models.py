@@ -36,14 +36,14 @@ class Room(db.Model):
 	entered = db.DateTimeProperty(auto_now=True)
 
 class RdioTagDS(db.Model):
-	tags = db.TextProperty()
+	tag = db.StringProperty()
 	songname = db.StringProperty()
 	radiokey = db.StringProperty()
 	user_id = db.StringProperty()
 
 	def to_dict(self):
 		obj = {}
-		obj['tags'] = json.loads(self.tags)
+		obj['tag'] = self.tag
 		obj['songname'] = self.songname
 		obj['radiokey'] = self.radiokey
 		return obj
