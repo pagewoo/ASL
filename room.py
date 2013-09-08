@@ -11,7 +11,7 @@ from google.appengine.api import users
 from google.appengine.ext import db
 from models import *
 import uuid
-from api.crunchbase import Crunchbase
+from api.jcrunch import Crunchbase
 
 
 def get_user_id(user_id):

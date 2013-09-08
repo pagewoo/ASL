@@ -1,6 +1,6 @@
 import json
 import webapp2
-from api.crunchbase import Crunchbase
+from api.jcrunch import Crunchbase
 
 
 class Handler(webapp2.RequestHandler):
