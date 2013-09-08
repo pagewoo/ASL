@@ -276,7 +276,12 @@ def messsage_scan(message):
 	
 class OnDisconnect(webapp2.RequestHandler):
 	def get(self):
-		return
+		user_id = get_user_id(None)
+		rooms = Room.gql('where user_id = :1', user_id).fetch(1000)
+		for room in rooms:
+			room.delete()
+		logging.error("Disconnected")
+
 		
 
 
