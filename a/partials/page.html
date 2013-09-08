@@ -23,14 +23,14 @@
 
 		<div class='reg-box content light-font' style='min-height:300px; min-width:20px; font-size:14px'>
 			<div ng-repeat='person in people_in_room | filter:real_user' >
-				<div style='background:#cdf0f2' ng-show='$index%2=0'>
+				<div style='background:#cdf0f2' ng-show='$index%2==0'>
 				<div style='width:calc(100% - 90px); padding:12px; padding-left:10px'>
 					<div style='color:#02abb5'>{{person.username}}</div> 
 					<div>Age: {{person.sex}} Sex: {{person.sex}} Location: {{person.location}}</div>
 					<div>Last Mention: {{person.last_mention}}</div>
 				</div>
 				</div>
-				<div style='background:#eae3f1' ng-show='$index%2=1'>
+				<div style='background:#eae3f1' ng-show='$index%2==1'>
 				<div style='width:calc(100% - 90px); padding:12px; padding-left:10px'>
 					<div style='color:#8964b0'>{{person.username}}</div> 
 					<div>Age: {{person.sex}} Sex: {{person.sex}} Location: {{person.location}}</div>
