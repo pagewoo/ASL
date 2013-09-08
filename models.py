@@ -6,11 +6,21 @@ from google.appengine.ext.webapp import blobstore_handlers
 
 class Users(db.Model):
 	username = db.StringProperty()
-	password = db.StringProperty()
 	user_id = db.StringProperty()
 	age = db.IntegerProperty()
 	sex = db.StringProperty()
+	loc = db.StringProperty()
 	last_mention = db.StringProperty()
+
+	def to_dict(self):
+		obj = {}
+		obj['age'] = self.age
+		obj['sex'] = self.sex
+		obj['loc'] = self.loc
+		obj['user_id'] = self.user_id
+		obj['username'] = self.username
+
+		return obj
 		
 
 class Room(db.Model):

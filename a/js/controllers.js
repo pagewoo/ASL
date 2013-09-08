@@ -28,12 +28,16 @@ function pageCtrl($scope, $http){
       socket.onerror = $scope.onError;
       socket.onclose = $scope.onClose;
 
-      $http.get('/getmyprofile').success(function(data){
-        
-      }
+      $scope.user_profile = data.user;
 
     });
 
+  }
+
+  $scope.save_profile = function() {
+    $http.post('/saveprofile/' + $scope.user_id, $scope.user_profile).success(function(data){
+      console.log('profile saved')
+    });
   }
 
   $scope.change_room = function() {

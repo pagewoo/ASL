@@ -73,13 +73,13 @@ def create_or_get_user(user_id):
 
 	user_obj = Users.gql('where name = :1', user_id).get()
 	if not user_obj:
-		user = Users()
+		user_obj = Users()
 		if users.get_current_user():
-			user.username = users.get_current_user().nickname()
+			user_obj.username = users.get_current_user().nickname()
 		else:
-			user.username = user_id
-		user.user_id = user_id
-		user.put()	
+			user_obj.username = user_id
+		user_obj.user_id = user_id
+		user_obj.put()	
 	return user_obj
 
 
@@ -101,7 +101,6 @@ class EnterRoom(webapp2.RequestHandler):
 			token = channel.create_channel(user_id)
 			user_room.token = token
 			user_room.put()
-			
 
 		else:
 			token = channel.create_channel(user_id)
@@ -113,7 +112,8 @@ class EnterRoom(webapp2.RequestHandler):
 
 		obj = {
 				'user_id': user_id,
-				'token': token
+				'token': token,
+				'user': gae_user.to_dict()
 		}
 
 		self.response.out.write(json.dumps(obj))
