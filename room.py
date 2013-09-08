@@ -214,7 +214,7 @@ def play_song(message):
 	if len(matches) >= 1:
 		logging.info(matches)
 		songs = RdioTagDS.gql('where tag = :1', matches[0]).fetch(10)
-		rando = random.randint(0,len(matches)-1)
+		rando = random.randint(0,len(songs)-1)
 		chosen_song = songs[rando]
 
 	return chosen_song
