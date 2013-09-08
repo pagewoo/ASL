@@ -253,7 +253,7 @@ def messsage_scan(message):
 			   'song_success' : song_success}
 
 	if crunch_results:
-		results['crunch_results'] = crunch_results,
+		results['crunch_results'] = crunch_results
 
 
 	return results
