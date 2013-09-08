@@ -19,17 +19,22 @@ import room
 import crunchbase
 import wunderground
 from models import *
+from google.appengine.api import users
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.redirect('/a/index.html')
+
+class Login(webapp2.RequestHandler):
+    def get(self):
+        self.redirect(users.create_login_url('/'))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     (r'/enterroom/(.*)', room.EnterRoom),
     (r'/changeroom/(.*)/(.*)/(.*)', room.ChangeRoom),
 
-    ('/login', room.Login),
+    ('/login', Login),
     ('/saveprofile', room.SaveProfile),
     ('/sendmessage', room.SendMessage),
     ('/getmyprofile', room.GetMyProfile),
