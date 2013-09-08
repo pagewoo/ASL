@@ -118,6 +118,12 @@ var fake_results = [{"radioKey": "sr16559751", "baseIcon": "album/c/2/2/00000000
 
 function musicCtrl($scope, $http) {
 
+  $scope.is_auth = function(){
+    var token = R.accessToken()  
+    console.log(token)
+  }
+
+  $scope.is_auth();
 
   console.log('rdio home ctrl')
   $scope.play_token = []
