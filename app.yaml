@@ -4,6 +4,9 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+env_variables:
+  CRUNCHBASE_KEY: '3pza5c8uxppfm8y8sx5zyp4a'
+
 handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
