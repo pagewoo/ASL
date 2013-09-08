@@ -54,6 +54,7 @@ class addTag(webapp2.RequestHandler):
         tag = obj['tagname'],
         songname = obj['songname'],
         radiokey = obj['radiokey'],
+        song_data = json.dumps(obj['song_data'])
       )
       rdio_song.put()
 
@@ -73,6 +74,7 @@ app = webapp2.WSGIApplication([
     (r'/crunchbase/company/(.*)', crunchbase.CompanyHandler),
     ('/wunderground/search', wunderground.SearchHandler),
     (r'/wunderground/conditions/(.*)', wunderground.ConditionsHandler),
+    ('/_ah/channel/disconnected/', room.OnDisconnect),
 
     ('/searchrdio', searchRdio),
     ('/addrdiotag', addTag)

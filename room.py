@@ -274,7 +274,10 @@ def messsage_scan(message):
 
 			
 	
-
+class OnDisconnect(webapp2.RequestHandler):
+	def get(self):
+		return
+		
 
 
 				
